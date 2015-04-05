@@ -10,22 +10,20 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Power Schema
- * @type {*|Schema}
+ * PowerCompany Schema
  */
-var PowerSchema = new Schema({
+var PowerCompanySchema = new Schema({
 	name: {
 		type: String,
 		default: '',
 		trim: true,
 		required: 'Company name cannot be blank'
 	},
-	discount: {
-
-	},
 	special: {
-
+		type: String,
+		default: 'None',
+		trim: true
 	}
 });
 
-mongoose.model('Power', PowerSchema);
+mongoose.model('PowerCompany', PowerCompanySchema);
