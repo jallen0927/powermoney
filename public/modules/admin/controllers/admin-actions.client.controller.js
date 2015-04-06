@@ -12,8 +12,11 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 		//if (!$scope.authentication.user) $location.path('/admin/login');
 
 		$scope.adduser = function() {
-			console.log($scope.credentials);
-			
+			$http.post('/admin/createuser', $scope.credentials).success(function(response){
+				console.log(response);
+			}).error(function(response){
+				$scope.error = response.message;
+			});
 		};
 	}
 

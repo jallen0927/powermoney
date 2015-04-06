@@ -10,7 +10,12 @@ angular.module('admin').controller('AdminAuthenticationController', ['$scope', '
 		if ($scope.authentication.user) $location.path('/admin');
 
 		$scope.login = function() {
-
+			console.log($scope.credentials);
+			$http.post('/admin/login', $scope.credentials).success(function (response) {
+				console.log(response);
+			}).error(function(response){
+				console.log(response);
+			});
 		};
 	}
 ]);

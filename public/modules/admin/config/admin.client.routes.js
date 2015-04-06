@@ -14,6 +14,10 @@ angular.module('admin').config(['$stateProvider',
 		state('adduser', {
 			url: '/admin/adduser',
 			templateUrl: 'modules/admin/views/add-user.client.view.html'
+		}).
+		state('admin', {
+			url: '/admin',
+			templateUrl: 'modules/admin/views/index.client.view.html'
 		});
 		//state('admin', {
 		//		redirectTo: '/admin/login'
