@@ -15,5 +15,13 @@ angular.module('admin').config(['$stateProvider',
 			url: '/admin/adduser',
 			templateUrl: 'modules/admin/views/add-user.client.view.html'
 		});
+		//state('admin', {
+		//		redirectTo: '/admin/login'
+		//	});
+
+		//$urlRouteProvider.
+		//	when('/admin', {
+		//		redirectTo: 'admin/login'
+		//	});
 	}
 ]);
