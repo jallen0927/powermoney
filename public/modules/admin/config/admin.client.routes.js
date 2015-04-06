@@ -11,17 +11,18 @@ angular.module('admin').config(['$stateProvider',
 			url: '/admin/login',
 			templateUrl: 'modules/admin/views/login.client.view.html'
 		}).
-		state('adduser', {
+		state('addUser', {
 			url: '/admin/adduser',
 			templateUrl: 'modules/admin/views/add-user.client.view.html'
 		}).
 		state('admin', {
 			url: '/admin',
 			templateUrl: 'modules/admin/views/index.client.view.html'
+		}).
+		state('listUsers', {
+			url: '/admin/users',
+			templateUrl: 'modules/admin/views/list-users.client.view.html'
 		});
-		//state('admin', {
-		//		redirectTo: '/admin/login'
-		//	});
 
 		//$urlRouteProvider.
 		//	when('/admin', {

@@ -14,6 +14,31 @@ var _ = require('lodash'),
 
 exports.addUser = function(req, res) {
 
+//	delete req.body.roles;
+
+	var adminUser = new AdminUser(req.body);
+
+	adminUser.provider = 'local';
+	adminUser.displayName = adminUser.firstName + ' ' + adminUser.lastName;
+
+	adminUser.save(function(err){
+		if(err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			adminUser.password = undefined;
+			adminUser.salt = undefined;
+
+			req.login(adminUser, function(err) {
+				if (err) {
+					res.status(400).send(err);
+				} else {
+					res.json(adminUser);
+				}
+			});
+		}
+	});
 };
 
 exports.login = function(req, res) {
