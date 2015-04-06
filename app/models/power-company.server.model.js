@@ -21,7 +21,7 @@ var PowerCompanySchema = new Schema({
 	},
 	special: {
 		type: String,
-		default: 'None',
+		default: '无',
 		trim: true
 	}
 });

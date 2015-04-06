@@ -30,12 +30,20 @@
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
+			<li ui-route="/aboutus" ng-class="{active: $uiRoute}">
+				<a href="/#!/aboutus">About Us</a>
 			</li>
 			<li class="divider-vertical"></li>
-			<li ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Sign In</a>
+			<li ui-route="/contactus" ng-class="{active: $uiRoute}">
+				<a href="/#!/contactus">Contact Us</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li ui-route="/blog" ng-class="{active: $uiRoute}">
+				<a href="/#!/blog">Our Blog</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li ui-route="/product" ng-class="{active: $uiRoute}">
+				<a href="/#!/product">Product</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
