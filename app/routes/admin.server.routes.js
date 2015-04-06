@@ -8,5 +8,7 @@ var adminActions = require('../../app/controllers/admin/admin-actions.server.con
 module.exports = function(app) {
 	app.route('/admin/addUser').post(adminActions.addUser);
 	app.route('/admin/login').post(adminActions.login);
-		//.post(adminActions.requiresLogin, adminActions.createUser);
+
+	app.route('/admin/users').get(adminActions.listUsers);
+	app.route('/admin/users/:userId').get(adminActions.editUser);
 };

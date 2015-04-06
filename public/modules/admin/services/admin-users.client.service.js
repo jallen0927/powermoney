@@ -5,7 +5,7 @@
 
 angular.module('admin').factory('AdminUsers', ['$resource',
 	function($resource) {
-		return $resource('admin/users: userId', {
+		return $resource('admin/users/:userId', {
 			userId: '@_id'
 		}, {
 			update: {

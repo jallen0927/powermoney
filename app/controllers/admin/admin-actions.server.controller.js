@@ -54,3 +54,24 @@ exports.requiresLogin = function(req, res, next) {
 
 	next();
 };
+
+/**
+ * List all admin users
+ * @param req
+ * @param res
+ */
+exports.listUsers = function(req, res){
+	AdminUser.find().sort('-created').populate('username', 'email').exec(function(err, users) {
+		if(err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.json(users);
+		}
+	});
+};
+
+exports.editUser = function(req, res) {
+	res.json(req.body);
+};

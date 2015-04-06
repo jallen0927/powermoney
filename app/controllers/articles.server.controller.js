@@ -30,6 +30,7 @@ exports.create = function(req, res) {
  * Show the current article
  */
 exports.read = function(req, res) {
+	console.log('read');
 	res.json(req.article);
 };
 

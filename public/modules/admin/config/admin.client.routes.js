@@ -23,9 +23,13 @@ angular.module('admin').config(['$stateProvider',
 			url: '/admin/',
 			templateUrl: 'modules/admin/views/index.client.view.html'
 		}).
-		state('listUsers', {
+		state('users', {
 			url: '/admin/users',
 			templateUrl: 'modules/admin/views/list-users.client.view.html'
+		}).
+		state('editUser', {
+			url: '/admin/users/:userId',
+			templateUrl: 'modules/admin/views/edit-user.client.view.html'
 		});
 
 		//$urlRouteProvider.
