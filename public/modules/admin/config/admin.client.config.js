@@ -3,7 +3,4 @@
  */
 'use strict';
 
-angular.module('admin').config(['$resourceProvider', function($resourceProvider) {
 
-	$resourceProvider.defaults.stripeTrailingSlashes = true;
-}]);
