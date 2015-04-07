@@ -62,22 +62,19 @@ exports.requiresLogin = function(req, res, next) {
  * @param res
  */
 exports.listUsers = function(req, res){
-	AdminUser.find().sort('-created').exec(function(err, users) {
+	AdminUser.find().sort('-created').lean().exec(function(err, users) {
 		if(err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			var usersObj = [];
 			for(var i= 0; i<users.length; i++) {
-				var user = users[i].toObject();
-				user.password = undefined;
-				user.salt = undefined;
-				user.created = moment(user.created).format('YYYY-MM-DD');
-                usersObj[i] = user;
+				users[i].password = undefined;
+				users[i].salt = undefined;
+				users[i].created = moment(users.created).format('YYYY-MM-DD');
 			}
 
-			res.json(usersObj);
+			res.json(users);
 		}
 	});
 };
