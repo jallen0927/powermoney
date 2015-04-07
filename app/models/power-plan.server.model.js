@@ -6,31 +6,45 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var PowerPlanSchema = new Schema({
+	//company: {
+	//	type: Schema.ObjectId,
+	//	ref: 'PowerCompany'
+	//},
+	company: {
+		type: String,
+		default: ''
+	},
 	class: {
 		type: String,
 		enum: ['低用户', '标准用户']
 	},
 	fixed: {
-
+		type: Number,
+		default: 0
 	},
 	unit: {
-
+		type: Number,
+		default: 0
 	},
 	levy: {
-
+		type: String,
+		default: 'inclusive'
 	},
 	gst: {
-
+		type: String,
+		default: 'inclusive'
 	},
 	inst: {
-
+		type: Number,
+		default: 0
 	},
 	coupon: {
-
+		type: String,
+		default: '无'
 	},
-	company: {
-		type: Schema.ObjectId,
-		ref: 'PowerCompany'
+	special: {
+		type: String,
+		default: '无'
 	}
 });
 

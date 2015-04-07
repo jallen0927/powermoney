@@ -8,7 +8,8 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	crypto = require('crypto');
+	crypto = require('crypto'),
+	moment = require('moment');
 
 /**
  * A Validation function for local strategy properties
@@ -84,10 +85,10 @@ var AdminUserSchema = new Schema({
 	},
 	created: {
 		type: Date,
-		default: Date.now,
-		get: function(date) {
-			return moment(date).format('YYYY-MM-DD');
-		}
+		default: Date.now
+		//get: function(date) {
+		//	return moment(date).format('YYYY-MM-DD');
+		//}
 	},
 	/* For reset password */
 	resetPasswordToken: {

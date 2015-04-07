@@ -11,4 +11,7 @@ module.exports = function(app) {
 
 	app.route('/admin/users').get(adminActions.listUsers);
 	app.route('/admin/users/:userId').get(adminActions.editUser);
+
+	app.route('/admin/addPlan').post(adminActions.addPlan);
+	app.route('/admin/plans/:planId').get(adminActions.editPlan);
 };

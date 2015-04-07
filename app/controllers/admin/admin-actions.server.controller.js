@@ -68,22 +68,28 @@ exports.listUsers = function(req, res){
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			var usersObj = [];
 			for(var i= 0; i<users.length; i++) {
-				users[i].password = undefined;
-				users[i].salt = undefined;
-				var created = moment(users[i].created).format('YYYY-MM-DD');
-				users[i].set('created', created);
-                //
-				//console.log(users[i].created);
-				//console.log(created);
-				//console.log(users[i].get('created'));
+				var user = users[i].toObject();
+				user.password = undefined;
+				user.salt = undefined;
+				user.created = moment(user.created).format('YYYY-MM-DD');
+                usersObj[i] = user;
 			}
 
-			res.json(users);
+			res.json(usersObj);
 		}
 	});
 };
 
 exports.editUser = function(req, res) {
+	res.json(req.body);
+};
+
+exports.addPlan = function(req, res) {
+	res.json(req.body);
+};
+
+exports.editPlan = function(req, res) {
 	res.json(req.body);
 };

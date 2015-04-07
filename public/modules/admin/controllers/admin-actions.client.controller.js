@@ -11,19 +11,28 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 		// If user isn't signed in then redirect login
 		//if (!$scope.authentication.user) $location.path('/admin/login');
 
-		$scope.adduser = function() {
-			$http.post('/admin/adduser', $scope.credentials).success(function(response){
+		$scope.addUser = function() {
+			$http.post('/admin/addUser', $scope.credentials).success(function(){
 				$location.path('/admin/users');
 			}).error(function(response){
 				$scope.error = response.message;
 			});
 		};
 
-		$scope.find = function() {
+		$scope.findUsers = function() {
 			var _adminUsers = AdminUsers.query();
 
 			$scope.adminUsers = _adminUsers;
 		};
+
+		$scope.addPlan = function() {
+			$http.post('/admin/addPlan', $scope.plan).success(function(){
+				$location.path('/admin/plans');
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
 	}
 
 ]);
