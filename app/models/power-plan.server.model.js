@@ -19,12 +19,12 @@ var PowerPlanSchema = new Schema({
 		enum: ['低用户', '标准用户']
 	},
 	fixed: {
-		type: Number,
-		default: 0
+		type: String,
+		default: '0'
 	},
 	unit: {
-		type: Number,
-		default: 0
+		type: String,
+		default: '0'
 	},
 	levy: {
 		type: String,
@@ -35,8 +35,8 @@ var PowerPlanSchema = new Schema({
 		default: 'inclusive'
 	},
 	inst: {
-		type: Number,
-		default: 0
+		type: String,
+		default: '0'
 	},
 	coupon: {
 		type: String,

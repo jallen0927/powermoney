@@ -1,11 +1,11 @@
 <section class="row" data-ng-controller="AdminActionController">
-	<h3 class="col-md-12 text-center">Add another admin user</h3>
+	<h3 class="col-md-12 text-center">Add another power plan</h3>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="planForm" data-ng-submit="addPlan()" class="add-plan form-horizontal" novalidate autocomplete="on">
 			<fieldset>
 				<div class="form-group">
-					<label for="companyName">公司名称</label>
-					<input type="text" required id="companyName" name="companyName" class="form-control" data-ng-model="plan.companyName" placeholder="公司名称">
+					<label for="company">公司名称</label>
+					<input type="text" required id="company" name="company" class="form-control" data-ng-model="plan.company" placeholder="公司名称">
 				</div>
 				<div class="form-group">
 					<label for="class">类型</label>

@@ -11,6 +11,7 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	AdminUser = mongoose.model('AdminUser'),
+	PowerPlan = mongoose.model('PowerPlan'),
 	moment = require('moment');
 
 exports.addUser = function(req, res) {
@@ -28,16 +29,17 @@ exports.addUser = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			adminUser.password = undefined;
-			adminUser.salt = undefined;
+			//adminUser.password = undefined;
+			//adminUser.salt = undefined;
 
-			req.login(adminUser, function(err) {
-				if (err) {
-					res.status(400).send(err);
-				} else {
-					res.json(adminUser);
-				}
-			});
+			//req.login(adminUser, function(err) {
+			//	if (err) {
+			//		res.status(400).send(err);
+			//	} else {
+			//		res.json(adminUser);
+			//	}
+			//});
+			console.log('success');
 		}
 	});
 };
@@ -84,7 +86,16 @@ exports.editUser = function(req, res) {
 };
 
 exports.addPlan = function(req, res) {
-	res.json(req.body);
+	var powerPlan = new PowerPlan(req.body);
+
+	powerPlan.save(function(err){
+		if(err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		}
+		return res.status(200).end();
+	});
 };
 
 exports.editPlan = function(req, res) {

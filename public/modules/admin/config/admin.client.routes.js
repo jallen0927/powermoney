@@ -16,7 +16,7 @@ angular.module('admin').config(['$stateProvider',
 			templateUrl: 'modules/admin/views/login.client.view.html'
 		}).
 		state('addUser', {
-			url: '/admin/users/add',
+			url: '/admin/users/new',
 			templateUrl: 'modules/admin/views/add-user.client.view.html'
 		}).
 		state('admin/', {
