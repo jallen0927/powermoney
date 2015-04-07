@@ -1,5 +1,6 @@
 <section data-ng-controller="AdminActionController" data-ng-init="find()">
 	<h3 class="col-md-12 text-center">Administrator Users</h3>
+	<div data-ng-bind="adminUsers"></div>
 	<div data-ng-repeat="adminUser in adminUsers">
 		<div data-ng-bind=" adminUser.email"></div>
 	</div>

@@ -61,7 +61,7 @@ exports.requiresLogin = function(req, res, next) {
  * @param res
  */
 exports.listUsers = function(req, res){
-	AdminUser.find().sort('-created').populate('username', 'email').exec(function(err, users) {
+	AdminUser.find().sort('-created').exec(function(err, users) {
 		if(err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

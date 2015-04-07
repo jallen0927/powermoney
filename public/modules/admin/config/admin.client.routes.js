@@ -23,7 +23,7 @@ angular.module('admin').config(['$stateProvider',
 			url: '/admin/',
 			templateUrl: 'modules/admin/views/index.client.view.html'
 		}).
-		state('users', {
+		state('listUsers', {
 			url: '/admin/users',
 			templateUrl: 'modules/admin/views/list-users.client.view.html'
 		}).
