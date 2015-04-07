@@ -10,7 +10,8 @@ var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	AdminUser = mongoose.model('AdminUser');
+	AdminUser = mongoose.model('AdminUser'),
+	moment = require('moment');
 
 exports.addUser = function(req, res) {
 
@@ -67,6 +68,17 @@ exports.listUsers = function(req, res){
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			for(var i= 0; i<users.length; i++) {
+				users[i].password = undefined;
+				users[i].salt = undefined;
+				var created = moment(users[i].created).format('YYYY-MM-DD');
+				users[i].set('created', created);
+                //
+				//console.log(users[i].created);
+				//console.log(created);
+				//console.log(users[i].get('created'));
+			}
+
 			res.json(users);
 		}
 	});

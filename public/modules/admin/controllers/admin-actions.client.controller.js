@@ -13,14 +13,16 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 
 		$scope.adduser = function() {
 			$http.post('/admin/adduser', $scope.credentials).success(function(response){
+				$location.path('/admin/users');
 			}).error(function(response){
 				$scope.error = response.message;
 			});
 		};
 
 		$scope.find = function() {
-			$scope.adminUsers = AdminUsers.query();
-			console.log($scope.adminUsers);
+			var _adminUsers = AdminUsers.query();
+
+			$scope.adminUsers = _adminUsers;
 		};
 	}
 
