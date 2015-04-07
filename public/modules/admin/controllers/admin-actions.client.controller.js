@@ -4,8 +4,8 @@
 
 'use strict';
 
-angular.module('admin').controller('AdminActionController', ['$scope', '$http', '$location', 'AdminAuthentication', 'AdminUsers',
-	function($scope, $http, $location, AdminAuthentication, AdminUsers) {
+angular.module('admin').controller('AdminActionController', ['$scope', '$http', '$location', 'AdminAuthentication', 'AdminUsers', 'PowerPlans',
+	function($scope, $http, $location, AdminAuthentication, AdminUsers, PowerPlans) {
 		$scope.authentication = AdminAuthentication;
 
 		// If user isn't signed in then redirect login
@@ -21,7 +21,6 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 
 		$scope.findUsers = function() {
 			var _adminUsers = AdminUsers.query();
-
 			$scope.adminUsers = _adminUsers;
 		};
 
@@ -31,6 +30,11 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
+		};
+
+		$scope.findPlans = function() {
+			var _powerPlans = PowerPlans.query();
+			$scope.powerPlans = _powerPlans;
 		};
 
 	}

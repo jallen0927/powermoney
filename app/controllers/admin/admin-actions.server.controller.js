@@ -39,7 +39,7 @@ exports.addUser = function(req, res) {
 			//		res.json(adminUser);
 			//	}
 			//});
-			console.log('success');
+			return res.status(200).end();
 		}
 	});
 };
@@ -95,6 +95,18 @@ exports.addPlan = function(req, res) {
 			});
 		}
 		return res.status(200).end();
+	});
+};
+
+exports.listPlans = function(req, res){
+	PowerPlan.find().sort('-created').lean().exec(function(err, plans) {
+		if(err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.json(plans);
+		}
 	});
 };
 

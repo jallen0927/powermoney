@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-list plan page
-</body>
-</html>
+<section data-ng-controller="AdminActionController" data-ng-init="findPlans()">
+	<div class="pull-right">
+		<a class="btn btn-primary" href="/#!/admin/plans/new" title="Add New">
+			<i class="">Add New</i>
+		</a>
+	</div>
+	<h3>Power Plans</h3>
+	<table class="table">
+		<tr>
+			<th>选择</th>
+			<th>名称</th>
+			<th>类型</th>
+			<th>固定收费(cent/day)</th>
+			<th>单位收费(cent/kWH)</th>
+			<th>Electricity Authority Levy (cent/KWH)</th>
+			<th>GST</th>
+			<th>及时付款折扣</th>
+			<th>加入优惠</th>
+			<th>特殊</th>
+		</tr>
+		<tr data-ng-repeat="powerPlan in powerPlans">
+			<td data-ng-bind=" ">
+				<input type="radio">
+			</td>
+			<td data-ng-bind=" powerPlan.company"></td>
+			<td data-ng-bind=" powerPlan.class"></td>
+			<td data-ng-bind=" powerPlan.fixed"></td>
+			<td data-ng-bind=" powerPlan.unit"></td>
+			<td data-ng-bind=" powerPlan.levy"></td>
+			<td data-ng-bind=" powerPlan.gst"></td>
+			<td data-ng-bind=" powerPlan.inst"></td>
+			<td data-ng-bind=" powerPlan.coupon"></td>
+			<td data-ng-bind=" powerPlan.special"></td>
+		</tr>
+	</table>
+</section>
+
