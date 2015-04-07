@@ -84,7 +84,10 @@ var AdminUserSchema = new Schema({
 	},
 	created: {
 		type: Date,
-		default: Date.now
+		default: Date.now,
+		get: function(date) {
+			return moment(date).format('YYYY-MM-DD');
+		}
 	},
 	/* For reset password */
 	resetPasswordToken: {

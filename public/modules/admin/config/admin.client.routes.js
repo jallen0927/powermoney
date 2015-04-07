@@ -16,7 +16,7 @@ angular.module('admin').config(['$stateProvider',
 			templateUrl: 'modules/admin/views/login.client.view.html'
 		}).
 		state('addUser', {
-			url: '/admin/adduser',
+			url: '/admin/users/add',
 			templateUrl: 'modules/admin/views/add-user.client.view.html'
 		}).
 		state('admin/', {
@@ -30,6 +30,18 @@ angular.module('admin').config(['$stateProvider',
 		state('editUser', {
 			url: '/admin/users/:userId',
 			templateUrl: 'modules/admin/views/edit-user.client.view.html'
+		}).
+		state('listPlans', {
+			url: '/admin/plans',
+			templateUrl: 'modules/admin/views/list-plans.client.view.html'
+		}).
+		state('addPlans', {
+			url: '/admin/plans/new',
+			templateUrl: 'modules/admin/views/add-plan.client.view.html'
+		}).
+		state('editPlan', {
+			url: '/admin/plans/edit/:planId',
+			templateUrl: 'modules/admin/views/edit-plan.client.view.html'
 		});
 
 		//$urlRouteProvider.
