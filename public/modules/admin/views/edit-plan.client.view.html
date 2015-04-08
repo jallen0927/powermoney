@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-edit plan page
-</body>
-</html>
+<section class="row" data-ng-controller="AdminActionController" data-ng-init="findPlans()">
+	<h3 class="col-md-12 text-center">Add another power plan</h3>
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+		<form name="planForm" data-ng-submit="addPlan()" class="add-plan form-horizontal" novalidate autocomplete="on">
+			<fieldset>
+				<div class="form-group">
+					<label for="company">公司名称</label>
+					<input type="text" required id="company" name="company" class="form-control" data-ng-model="plan.company" placeholder="公司名称">
+				</div>
+				<div class="form-group">
+					<label for="class">类型</label>
+					<input type="text" id="class" name="class" class="form-control" data-ng-model="plan.class" placeholder="类型">
+				</div>
+				<div class="form-group">
+					<label for="fixed">固定收费</label>
+					<input type="text" id="fixed" name="fixed" class="form-control" data-ng-model="plan.fixed" placeholder="固定收费">
+				</div>
+				<div class="form-group">
+					<label for="rate">单位收费</label>
+					<input type="text" id="rate" name="rate" class="form-control" data-ng-model="plan.rate" placeholder="Cent/day">
+				</div>
+				<div class="form-group">
+					<label for="levy">Electricity Authority Levy</label>
+					<input type="text" id="levy" name="levy" class="form-control" data-ng-model="plan.levy" placeholder="Cent/KWH">
+				</div>
+				<div class="form-group">
+					<label for="gst">GST</label>
+					<input type="text" id="gst" name="gst" class="form-control" data-ng-model="plan.gst" placeholder="GST">
+				</div>
+				<div class="form-group">
+					<label for="discount">及时付款折扣</label>
+					<input type="text" id="discount" name="discount" class="form-control" data-ng-model="plan.discount" placeholder="及时付款折扣">
+				</div>
+				<div class="form-group">
+					<label for="coupon">加入优惠</label>
+					<input type="text" id="coupon" name="coupon" class="form-control" data-ng-model="plan.coupon" placeholder="加入优惠">
+				</div>
+				<div class="form-group">
+					<label for="special">特殊</label>
+					<input type="text" id="special" name="special" class="form-control" data-ng-model="plan.special" placeholder="特殊">
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-large btn-primary">提交</button>
+					<input type="button" class="btn btn-large btn-primary" value="重置">
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
+

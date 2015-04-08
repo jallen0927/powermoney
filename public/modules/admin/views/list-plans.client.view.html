@@ -19,20 +19,20 @@
 			<th>操作</th>
 		</tr>
 		<tr data-ng-repeat="powerPlan in powerPlans">
-			<td data-ng-bind=" powerPlan.company"></td>
-			<td data-ng-bind=" powerPlan.class"></td>
-			<td data-ng-bind=" powerPlan.fixed"></td>
-			<td data-ng-bind=" powerPlan.rate"></td>
-			<td data-ng-bind=" powerPlan.levy"></td>
-			<td data-ng-bind=" powerPlan.gst"></td>
-			<td data-ng-bind=" powerPlan.discount"></td>
-			<td data-ng-bind=" powerPlan.coupon"></td>
-			<td data-ng-bind=" powerPlan.special"></td>
+			<td data-ng-bind="powerPlan.company"></td>
+			<td data-ng-bind="powerPlan.class"></td>
+			<td data-ng-bind="powerPlan.fixed"></td>
+			<td data-ng-bind="powerPlan.rate"></td>
+			<td data-ng-bind="powerPlan.levy"></td>
+			<td data-ng-bind="powerPlan.gst"></td>
+			<td data-ng-bind="powerPlan.discount"></td>
+			<td data-ng-bind="powerPlan.coupon"></td>
+			<td data-ng-bind="powerPlan.special"></td>
 			<td>
-				<a class="btn btn-info btn-xs" href="/#!/admin/plans/new/delete/" title="Edit">
+				<a class="btn btn-info btn-xs" href="/#!/admin/plans/edit/{{powerPlan._id}}" title="Edit">
 					<i class="fa fa-pencil"></i>
 				</a>
-				<a class="btn btn-danger btn-xs" href="/#!/admin/plans/delete/" title="Delete">
+				<a class="btn btn-danger btn-xs" href="/#!/admin/plans/delete/{{powerPlan._id}}" title="Delete">
 					<i class="fa fa-minus"></i>
 				</a>
 			</td>

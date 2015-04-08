@@ -12,39 +12,49 @@ var PowerPlanSchema = new Schema({
 	//},
 	company: {
 		type: String,
-		default: ''
+		default: '',
+		trim: true
 	},
 	class: {
 		type: String,
-		enum: ['低用户', '标准用户']
+		default: '',
+		//enum: ['低用户', '标准用户'],
+		trim: true
 	},
 	fixed: {
 		type: String,
-		default: '0'
+		default: '0',
+		trim: true
 	},
 	rate: {
 		type: String,
-		default: '0'
+		default: '0',
+		trim: true
 	},
 	levy: {
 		type: String,
-		default: 'inclusive'
+		default: 'inclusive',
+		trim: true
 	},
 	gst: {
 		type: String,
-		default: 'inclusive'
+		default: 'inclusive',
+		trim: true
 	},
 	discount: {
 		type: String,
-		default: '0'
+		default: '0',
+		trim: true
 	},
 	coupon: {
 		type: String,
-		default: '无'
+		default: '无',
+		trim: true
 	},
 	special: {
 		type: String,
-		default: '无'
+		default: '无',
+		trim: true
 	}
 });
 

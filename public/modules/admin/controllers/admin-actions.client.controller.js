@@ -37,6 +37,7 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			$scope.powerPlans = _powerPlans;
 		};
 
+
 	}
 
 ]);

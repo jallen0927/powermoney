@@ -38,7 +38,8 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 					plans[i].result = calResult(plans[i]).toFixed(2);
 				}
 
-				console.log(plans);
+				$scope.plans = plans;
+				$scope.showResult = true;
 			}).error(function(response){
 				$scope.error = response.error;
 			});
@@ -54,11 +55,19 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 				var a = parseFloat(plan.fixed) / 100.0,
 					b = parseFloat(plan.rate) / 100.0,
 					c = parseFloat(plan.discount) / 100.0,
-					x = parseFloat($scope.entry.amount) / 100.0;
+					x = parseFloat($scope.entry.amount) / 1.0;
 
 				return calFun(a, b, c, x);
 			}
 
+		};
+
+		$scope.goBack = function() {
+			$scope.showResult = false;
+		};
+
+		$scope.reset = function() {
+			$scope.entry = angular.copy({});
 		};
 	}
 

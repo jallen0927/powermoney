@@ -23,3 +23,7 @@ header .navbar-brand img {
 	width: 200px;
 	max-width: none;
 }
+
+h2, h3 {
+	padding-bottom: 10px;
+}
