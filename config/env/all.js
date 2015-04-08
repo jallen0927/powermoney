@@ -45,6 +45,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/fontawesome/css/font-awesome.min.css',
+				'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -52,7 +54,8 @@ module.exports = {
 				'public/lib/angular-animate/angular-animate.js',
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places'
 			]
 		},
 		css: [

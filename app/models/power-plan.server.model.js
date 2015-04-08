@@ -22,7 +22,7 @@ var PowerPlanSchema = new Schema({
 		type: String,
 		default: '0'
 	},
-	unit: {
+	rate: {
 		type: String,
 		default: '0'
 	},
@@ -34,7 +34,7 @@ var PowerPlanSchema = new Schema({
 		type: String,
 		default: 'inclusive'
 	},
-	inst: {
+	discount: {
 		type: String,
 		default: '0'
 	},
