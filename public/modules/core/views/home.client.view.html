@@ -26,21 +26,28 @@
 					</div>
 				</fieldset>
 			</form>
-			<table class="table" data-ng-show="showResult">
-				<tr data-ng-repeat="plan in plans">
-					<td data-ng-bind="plan.company"></td>
-					<td data-ng-bind="plan.class"></td>
-					<td data-ng-bind="plan.result"></td>
-					<td data-ng-bind="plan.coupon"></td>
-					<td data-ng-bind="plan.special"></td>
-				</tr>
-				<tr>
-					<td colspan="3">
-						<button class="btn btn-primary" data-ng-click="goBack()">返回重新计算</button>
-					</td>
-				</tr>
-			</table>
 		</div>
+		<table class="table" data-ng-show="showResult">
+			<tr>
+				<th>名称</th>
+				<th>类型</th>
+				<th>计算结果</th>
+				<th>加入优惠</th>
+				<th>特殊</th>
+			</tr>
+			<tr data-ng-repeat="plan in plans">
+				<td data-ng-bind="plan.company"></td>
+				<td data-ng-bind="plan.class"></td>
+				<td data-ng-bind="plan.result"></td>
+				<td data-ng-bind="plan.coupon"></td>
+				<td data-ng-bind="plan.special"></td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<button class="btn btn-primary" data-ng-click="goBack()">返回重新计算</button>
+				</td>
+			</tr>
+		</table>
 		<div class="col-md-4 col-md-offset-0 text-center">
 			<h4>Latest News</h4>
 		</div>
