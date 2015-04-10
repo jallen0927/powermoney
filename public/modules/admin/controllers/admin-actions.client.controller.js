@@ -10,6 +10,10 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 
 		// If user isn't signed in then redirect login
 		//if (!$scope.authentication.user) $location.path('/admin/login');
+		//$scope.editorOptions = {
+		//	language: 'en',
+		//	uiColor: '#000000'
+		//};
 
 		$scope.addUser = function() {
 			$http.post('/admin/addUser', $scope.credentials).success(function(){

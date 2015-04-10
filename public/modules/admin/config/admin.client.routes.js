@@ -35,18 +35,21 @@ angular.module('admin').config(['$stateProvider',
 			url: '/admin/plans',
 			templateUrl: 'modules/admin/views/list-plans.client.view.html'
 		}).
-		state('addPlans', {
+		state('addPlan', {
 			url: '/admin/plans/new',
 			templateUrl: 'modules/admin/views/add-plan.client.view.html'
 		}).
 		state('editPlan', {
 			url: '/admin/plans/edit/:planId',
 			templateUrl: 'modules/admin/views/edit-plan.client.view.html'
+		}).
+		state('manageBlogs', {
+			url: '/admin/blogs',
+			templateUrl: 'modules/admin/views/list-blogs.client.view.html'
+		}).
+		state('addBlog', {
+			url: '/admin/blogs/new',
+			templateUrl: 'modules/admin/views/add-blog.client.view.html'
 		});
-
-		//$urlRouteProvider.
-		//	when('/admin', {
-		//		redirectTo: 'admin/login'
-		//	});
 	}
 ]);
