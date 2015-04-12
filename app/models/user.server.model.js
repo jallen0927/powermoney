@@ -1,11 +1,15 @@
+/**
+ * Created by xlin on 5/04/15.
+ */
 'use strict';
 
 /**
- * Module dependencies.
+ * Mondule dependencies.
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	crypto = require('crypto');
+	crypto = require('crypto'),
+	moment = require('moment');
 
 /**
  * A Validation function for local strategy properties
@@ -22,9 +26,10 @@ var validateLocalStrategyPassword = function(password) {
 };
 
 /**
- * User Schema
+ * AdminUser Schema
+ *
  */
-var UserSchema = new Schema({
+var AdminUserSchema = new Schema({
 	firstName: {
 		type: String,
 		trim: true,
@@ -73,7 +78,7 @@ var UserSchema = new Schema({
 			type: String,
 			enum: ['user', 'admin']
 		}],
-		default: ['user']
+		default: ['admin']
 	},
 	updated: {
 		type: Date
@@ -81,6 +86,9 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
+		//get: function(date) {
+		//	return moment(date).format('YYYY-MM-DD');
+		//}
 	},
 	/* For reset password */
 	resetPasswordToken: {
@@ -88,14 +96,15 @@ var UserSchema = new Schema({
 	},
 	resetPasswordExpires: {
 		type: Date
+	},
+	enabled: {
+		type: Boolean,
+		default: true
 	}
 });
 
-/**
- * Hook a pre save method to hash the password
- */
-UserSchema.pre('save', function(next) {
-	if (this.password && this.password.length > 6) {
+AdminUserSchema.pre('save', function(next){
+	if(this.password && this.password.length > 6) {
 		this.salt = crypto.randomBytes(16).toString('base64');
 		this.password = this.hashPassword(this.password);
 	}
@@ -103,28 +112,19 @@ UserSchema.pre('save', function(next) {
 	next();
 });
 
-/**
- * Create instance method for hashing a password
- */
-UserSchema.methods.hashPassword = function(password) {
+AdminUserSchema.methods.hashPassword = function(password) {
 	if (this.salt && password) {
-		return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 10000, 64).toString('base64');
+		return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 1000, 64).toString('base64');
 	} else {
 		return password;
 	}
 };
 
-/**
- * Create instance method for authenticating user
- */
-UserSchema.methods.authenticate = function(password) {
+AdminUserSchema.methods.authenticate = function(password) {
 	return this.password === this.hashPassword(password);
 };
 
-/**
- * Find possible not used username
- */
-UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+AdminUserSchema.static.findUniqueUsername = function(username, suffix, callback) {
 	var _this = this;
 	var possibleUsername = username + (suffix || '');
 
@@ -143,4 +143,4 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	});
 };
 
-mongoose.model('User', UserSchema);
+mongoose.model('AdminUser', AdminUserSchema);

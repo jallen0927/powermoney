@@ -17,7 +17,7 @@ angular.module('admin').config(['$stateProvider',
 		}).
 		state('addUser', {
 			url: '/admin/users/new',
-			templateUrl: 'modules/admin/views/add-user.client.view.html'
+			templateUrl: 'modules/admin/views/add.user.client.view.html'
 		}).
 		state('admin/', {
 			url: '/admin/',
@@ -25,31 +25,31 @@ angular.module('admin').config(['$stateProvider',
 		}).
 		state('listUsers', {
 			url: '/admin/users',
-			templateUrl: 'modules/admin/views/list-users.client.view.html'
+			templateUrl: 'modules/admin/views/list.users.client.view.html'
 		}).
 		state('editUser', {
 			url: '/admin/users/:userId',
-			templateUrl: 'modules/admin/views/edit-user.client.view.html'
+			templateUrl: 'modules/admin/views/edit.user.client.view.html'
 		}).
 		state('listPlans', {
 			url: '/admin/plans',
-			templateUrl: 'modules/admin/views/list-plans.client.view.html'
+			templateUrl: 'modules/admin/views/list.plans.client.view.html'
 		}).
 		state('addPlan', {
 			url: '/admin/plans/new',
-			templateUrl: 'modules/admin/views/add-plan.client.view.html'
+			templateUrl: 'modules/admin/views/add.plan.client.view.html'
 		}).
 		state('editPlan', {
 			url: '/admin/plans/edit/:planId',
-			templateUrl: 'modules/admin/views/edit-plan.client.view.html'
+			templateUrl: 'modules/admin/views/edit.plan.client.view.html'
 		}).
 		state('manageBlogs', {
 			url: '/admin/blogs',
-			templateUrl: 'modules/admin/views/list-blogs.client.view.html'
+			templateUrl: 'modules/admin/views/list.blogs.client.view.html'
 		}).
 		state('addBlog', {
 			url: '/admin/blogs/new',
-			templateUrl: 'modules/admin/views/add-blog.client.view.html'
+			templateUrl: 'modules/admin/views/add.blog.client.view.html'
 		});
 	}
 ]);

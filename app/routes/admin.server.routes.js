@@ -3,7 +3,8 @@
  */
 'use strict';
 
-var adminActions = require('../../app/controllers/admin/admin-actions.server.controller');
+var adminActions = require('../controllers/admin/admin.actions.server.controller.js'),
+	adminAuthentication = require('../controllers/admin/admin.authentication.server.controller.js');
 
 module.exports = function(app) {
 	app.route('/admin/login').post(adminActions.login);
@@ -15,4 +16,6 @@ module.exports = function(app) {
 	app.route('/admin/addPlan').post(adminActions.addPlan);
 	app.route('/admin/plans').get(adminActions.listPlans);
 	app.route('/admin/plans/:planId').get(adminActions.editPlan);
+
+	app.route('/admin/auth').post(adminAuthentication.auth);
 };

@@ -14,7 +14,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).
 		state('blog', {
 			url: '/blogs',
-			templateUrl: 'modules/core/views/list-blogs.client.view.html'
+			templateUrl: 'modules/core/views/list.blogs.client.view.html'
 		});
 	}
 ]);
