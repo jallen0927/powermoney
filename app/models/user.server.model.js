@@ -8,8 +8,7 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	crypto = require('crypto'),
-	moment = require('moment');
+	crypto = require('crypto');
 
 /**
  * A Validation function for local strategy properties
@@ -26,10 +25,10 @@ var validateLocalStrategyPassword = function(password) {
 };
 
 /**
- * AdminUser Schema
+ * User Schema
  *
  */
-var AdminUserSchema = new Schema({
+var UserSchema = new Schema({
 	firstName: {
 		type: String,
 		trim: true,
@@ -103,7 +102,7 @@ var AdminUserSchema = new Schema({
 	}
 });
 
-AdminUserSchema.pre('save', function(next){
+UserSchema.pre('save', function(next){
 	if(this.password && this.password.length > 6) {
 		this.salt = crypto.randomBytes(16).toString('base64');
 		this.password = this.hashPassword(this.password);
@@ -112,7 +111,7 @@ AdminUserSchema.pre('save', function(next){
 	next();
 });
 
-AdminUserSchema.methods.hashPassword = function(password) {
+UserSchema.methods.hashPassword = function(password) {
 	if (this.salt && password) {
 		return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 1000, 64).toString('base64');
 	} else {
@@ -120,11 +119,11 @@ AdminUserSchema.methods.hashPassword = function(password) {
 	}
 };
 
-AdminUserSchema.methods.authenticate = function(password) {
+UserSchema.methods.authenticate = function(password) {
 	return this.password === this.hashPassword(password);
 };
 
-AdminUserSchema.static.findUniqueUsername = function(username, suffix, callback) {
+UserSchema.static.findUniqueUsername = function(username, suffix, callback) {
 	var _this = this;
 	var possibleUsername = username + (suffix || '');
 
@@ -143,4 +142,4 @@ AdminUserSchema.static.findUniqueUsername = function(username, suffix, callback)
 	});
 };
 
-mongoose.model('AdminUser', AdminUserSchema);
+mongoose.model('User', UserSchema);

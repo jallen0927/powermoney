@@ -7,7 +7,6 @@ var adminActions = require('../controllers/admin/admin.actions.server.controller
 	adminAuthentication = require('../controllers/admin/admin.authentication.server.controller.js');
 
 module.exports = function(app) {
-	app.route('/admin/login').post(adminActions.login);
 
 	app.route('/admin/addUser').post(adminActions.addUser);
 	app.route('/admin/users').get(adminActions.listUsers);

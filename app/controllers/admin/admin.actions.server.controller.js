@@ -10,7 +10,7 @@ var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	AdminUser = mongoose.model('AdminUser'),
+	User = mongoose.model('User'),
 	PowerPlan = mongoose.model('PowerPlan'),
 	moment = require('moment');
 
@@ -18,34 +18,20 @@ exports.addUser = function(req, res) {
 
 //	delete req.body.roles;
 
-	var adminUser = new AdminUser(req.body);
+	var user = new User(req.body);
 
-	adminUser.provider = 'local';
-	adminUser.displayName = adminUser.firstName + ' ' + adminUser.lastName;
+	user.provider = 'local';
+	user.displayName = user.firstName + ' ' + user.lastName;
 
-	adminUser.save(function(err){
+	user.save(function(err){
 		if(err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			//adminUser.password = undefined;
-			//adminUser.salt = undefined;
-
-			//req.login(adminUser, function(err) {
-			//	if (err) {
-			//		res.status(400).send(err);
-			//	} else {
-			//		res.json(adminUser);
-			//	}
-			//});
 			return res.status(200).end();
 		}
 	});
-};
-
-exports.login = function(req, res) {
-	res.json(req.body);
 };
 
 exports.requiresLogin = function(req, res, next) {
@@ -59,12 +45,12 @@ exports.requiresLogin = function(req, res, next) {
 };
 
 /**
- * List all admin users
+ * List all users
  * @param req
  * @param res
  */
 exports.listUsers = function(req, res){
-	AdminUser.find().sort('-created').lean().exec(function(err, users) {
+	User.find().sort('-created').lean().exec(function(err, users) {
 		if(err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
