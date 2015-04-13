@@ -32,5 +32,6 @@ module.exports = function(app) {
 
 	app.route('/admin/addContact').post(adminActions.addContact);
 	app.route('/admin/contacts').get(adminActions.listContacts);
+	app.route('/admin/contacts/:contactId').get(adminActions.markContact);
 
 };

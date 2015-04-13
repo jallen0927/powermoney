@@ -221,3 +221,7 @@ exports.listContacts = function(req, res){
 		}
 	});
 };
+
+exports.markContact = function(req, res) {
+	res.json(req.body);
+};
