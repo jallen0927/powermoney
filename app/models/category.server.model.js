@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-var HardwareCategorySchema = new Schema({
+var CategorySchema = new Schema({
 	title: {
 		type: String,
 		default: '',
@@ -15,4 +15,4 @@ var HardwareCategorySchema = new Schema({
 	}
 });
 
-mongoose.model('HardwareCategory', HardwareCategorySchema);
+mongoose.model('Category', CategorySchema);

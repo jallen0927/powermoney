@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<section data-ng-controller="AdminActionController" data-ng-init="findBlogs()">
+	<div class="pull-right">
+		<a class="btn btn-primary" href="/#!/admin/blogs/new" title="Add New">
+			<i class="fa fa-plus"></i>
+		</a>
+	</div>
+	<h3>Blogs</h3>
+	<table class="table">
+		<tr>
+			<th>Title</th>
+			<th>Created</th>
+		</tr>
+		<tr data-ng-repeat="blog in blogs">
+			<td data-ng-bind="blog.title"></td>
+			<td data-ng-bind="blog.created"></td>
+			<td>
+				<a class="btn btn-info btn-xs" href="/#!/admin/blogs/edit/{{blog._id}}" title="Edit">
+					<i class="fa fa-pencil"></i>
+				</a>
+				<a class="btn btn-danger btn-xs" href="/#!/admin/blogs/delete/{{blog._id}}" title="Delete">
+					<i class="fa fa-minus"></i>
+				</a>
+			</td>
+		</tr>
+	</table>
+</section>
 
-</body>
-</html>

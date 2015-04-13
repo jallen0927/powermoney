@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-var HardwareProductSchema = new Schema({
+var ProductSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
@@ -28,4 +28,4 @@ var HardwareProductSchema = new Schema({
 	}
 });
 
-mongoose.model('HardwareProduct', HardwareProductSchema);
+mongoose.model('Product', ProductSchema);

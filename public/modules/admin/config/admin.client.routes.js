@@ -50,6 +50,10 @@ angular.module('admin').config(['$stateProvider',
 		state('addBlog', {
 			url: '/admin/blogs/new',
 			templateUrl: 'modules/admin/views/add.blog.client.view.html'
+		}).
+		state('editBlog', {
+			url: '/admin/blogs/edit/:blogId',
+			templateUrl: 'modules/admin/views/edit.blog.client.view.html'
 		});
 	}
 ]);

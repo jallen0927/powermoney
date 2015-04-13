@@ -41,6 +41,13 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			$scope.powerPlans = _powerPlans;
 		};
 
+		$scope.addBlog = function() {
+			$http.post('/admin/addBlog', $scope.blog).success(function(){
+				$location.path('/admin/blogs');
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
 
 	}
 

@@ -15,6 +15,7 @@
 		</a>
 	</div>
 	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+			<!--
 		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
 			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
 				<a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle>
@@ -29,6 +30,7 @@
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
 		</ul>
+			-->
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/aboutus" ng-class="{active: $uiRoute}">
 				<a href="/#!/aboutus">About Us</a>
@@ -56,14 +58,28 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="/#!/settings/profile">Edit Profile</a>
+						<a href="/#!/admin/users">Manage users</a>
 					</li>
 					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
+						<a href="/#!/admin/plans">Manage Plans</a>
 					</li>
+					<li>
+						<a href="/#!/admin/orders">Manage Orders</a>
+					</li>
+					<li>
+						<a href="/#!/admin/blogs">Manage Blogs</a>
+					</li>
+					<li>
+						<a href="/#!/admin/products">Manage Products</a>
+					</li>
+					<li>
+						<a href="/#!/admin/contacts">Manage Contacts</a>
+					</li>
+						<!--
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/password">Change Password</a>
 					</li>
+						-->
 					<li class="divider"></li>
 					<li>
 						<a href="/auth/signout">Signout</a>
