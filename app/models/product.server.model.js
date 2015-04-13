@@ -20,11 +20,13 @@ var ProductSchema = new Schema({
 	},
 	category: {
 		type: Schema.ObjectId,
-		ref: 'HardwareCategory'
+		ref: 'Category',
+		default: null
 	},
 	image: {
 		type: Schema.ObjectId,
-		ref: 'Image'
+		ref: 'Image',
+		default: null
 	}
 });
 

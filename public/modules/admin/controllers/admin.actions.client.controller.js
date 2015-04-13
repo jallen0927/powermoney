@@ -4,8 +4,18 @@
 
 'use strict';
 
-angular.module('admin').controller('AdminActionController', ['$scope', '$http', '$location', 'AdminAuthentication', 'AdminUsers', 'PowerPlans',
-	function($scope, $http, $location, AdminAuthentication, AdminUsers, PowerPlans) {
+angular.module('admin').controller('AdminActionController', [
+	'$scope',
+	'$http',
+	'$location',
+	'AdminAuthentication',
+	'AdminUsers',
+	'PowerPlans',
+	'Blogs',
+	'Contacts',
+	'Orders',
+	'Products',
+	function($scope, $http, $location, AdminAuthentication, AdminUsers, PowerPlans, Blogs, Contacts, Orders, Products) {
 		$scope.authentication = AdminAuthentication;
 
 		// If user isn't signed in then redirect login
@@ -27,7 +37,7 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			var _adminUsers = AdminUsers.query();
 			$scope.adminUsers = _adminUsers;
 		};
-
+// for power plans
 		$scope.addPlan = function() {
 			$http.post('/admin/addPlan', $scope.plan).success(function(){
 				$location.path('/admin/plans');
@@ -41,6 +51,7 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			$scope.powerPlans = _powerPlans;
 		};
 
+		// for blogs
 		$scope.addBlog = function() {
 			$http.post('/admin/addBlog', $scope.blog).success(function(){
 				$location.path('/admin/blogs');
@@ -49,6 +60,52 @@ angular.module('admin').controller('AdminActionController', ['$scope', '$http', 
 			});
 		};
 
+		$scope.findBlogs = function() {
+			var _blogs = Blogs.query();
+			$scope.blogs = _blogs;
+		};
+
+		//for products
+		$scope.addProduct = function() {
+			$http.post('/admin/addProduct', $scope.product).success(function(){
+				$location.path('/admin/products');
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
+		$scope.findProducts = function() {
+			var _products = Products.query();
+			$scope.products = _products;
+		};
+
+		//for orders
+		$scope.addOrder = function() {
+			$http.post('/admin/addOrder', $scope.order).success(function(){
+				$location.path('/admin/orders');
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
+		$scope.findOrders = function() {
+			var _orders = Orders.query();
+			$scope.orders = _orders;
+		};
+
+		//for contacts
+		$scope.addContact = function() {
+			$http.post('/admin/addContact', $scope.contact).success(function(){
+				$location.path('/admin/contacts');
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
+		$scope.findContacts = function() {
+			var _contacts = Contacts.query();
+			$scope.contacts = _contacts;
+		};
 	}
 
 ]);
