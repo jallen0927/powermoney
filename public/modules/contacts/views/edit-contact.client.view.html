@@ -1,0 +1,35 @@
+<section data-ng-controller="ContactsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Contact</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="contactForm" class="form-horizontal" data-ng-submit="update(contactForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && contactForm.title.$invalid}">
+					<label class="control-label" for="title">Title</label>
+					<div class="controls">
+						<input name="title" type="text" data-ng-model="contact.title" id="title" class="form-control" placeholder="Title" required>
+					</div>
+					<div ng-show="submitted && contactForm.title.$invalid" class="help-block">
+						<p ng-show="contactForm.title.$error.required" class="text-danger">Title is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && contactForm.content.$invalid}">
+					<label class="control-label" for="content">Content</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="contact.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+					</div>
+					<div ng-show="submitted && contactForm.content.$invalid" class="help-block">
+						<p ng-show="contactForm.content.$error.required" class="text-danger">Content is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

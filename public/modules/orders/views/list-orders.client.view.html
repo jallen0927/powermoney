@@ -1,0 +1,20 @@
+<section data-ng-controller="OrdersController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Orders</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="order.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="order.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="order.title"></h4>
+			<p class="list-group-item-text" data-ng-bind="order.content"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="orders.$resolved && !orders.length">
+		No orders yet, why don't you <a href="/#!/orders/create">create one</a>?
+	</div>
+</section>

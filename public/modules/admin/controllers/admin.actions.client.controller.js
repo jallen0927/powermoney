@@ -8,6 +8,7 @@ angular.module('admin').controller('AdminActionController', [
 	'$scope',
 	'$http',
 	'$location',
+	'$stateParams',
 	'AdminAuthentication',
 	'AdminUsers',
 	'PowerPlans',
@@ -15,7 +16,7 @@ angular.module('admin').controller('AdminActionController', [
 	'Contacts',
 	'Orders',
 	'Products',
-	function($scope, $http, $location, AdminAuthentication, AdminUsers, PowerPlans, Blogs, Contacts, Orders, Products) {
+	function($scope, $http, $location, $stateParams, AdminAuthentication, AdminUsers, PowerPlans, Blogs, Contacts, Orders, Products) {
 		$scope.authentication = AdminAuthentication;
 
 		// If user isn't signed in then redirect login
@@ -49,6 +50,12 @@ angular.module('admin').controller('AdminActionController', [
 		$scope.findPlans = function() {
 			var _powerPlans = PowerPlans.query();
 			$scope.powerPlans = _powerPlans;
+		};
+
+		$scope.findPlan = function() {
+			$scope.plan = PowerPlans.get({
+				planId: $stateParams.planId
+			});
 		};
 
 		// for blogs
