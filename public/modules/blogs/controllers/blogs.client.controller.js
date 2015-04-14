@@ -64,5 +64,29 @@ angular.module('blogs').controller('BlogsController', ['$scope', '$stateParams',
 				blogId: $stateParams.blogId
 			});
 		};
+
+		// To trim string
+		$scope.trimContent = function(str, maxLength) {
+			var trimmedStr = str.substring(0, maxLength);
+			trimmedStr = trimmedStr.substr(0, Math.min(trimmedStr.length, trimmedStr.lastIndexOf(" ")));
+
+			return trimmedStr + '......';
+		}
+	}
+]);
+
+angular.module('blogs').directive('ngConfirmClick', [
+	function(){
+		return {
+			link: function (scope, element, attr) {
+				var msg = attr.ngConfirmClick || "Are you sure?";
+				var clickAction = attr.confirmedClick;
+				element.bind('click',function (event) {
+					if ( window.confirm(msg) ) {
+						scope.$eval(clickAction)
+					}
+				});
+			}
+		};
 	}
 ]);

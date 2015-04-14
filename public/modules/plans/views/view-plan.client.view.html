@@ -17,7 +17,7 @@
 		<div class="text-center">
 			<a class="btn btn-info" data-ng-href="#!/plans" title="View">Back</a>
 			<a class="btn btn-primary" href="/#!/plans/{{plan._id}}/edit" title="Edit">Edit</a>
-			<a class="btn btn-danger" href="/#!/plans/delete/{{plan._id}}" title="Delete">Delete</a>
+			<a class="btn btn-danger" title="Delete" confirmed-click="remove();" ng-confirm-click="Do you really want to delete?">Delete</a>
 		</div>
 	</div>
 </section>

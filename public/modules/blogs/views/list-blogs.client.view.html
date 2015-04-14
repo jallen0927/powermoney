@@ -1,23 +1,25 @@
 <section data-ng-controller="BlogsController" data-ng-init="find()">
-	<div class="page-header">
-		<div class="pull-right">
-			<a class="btn btn-primary" href="/#!/blogs/create" title="Add New">
-				<i class="fa fa-plus"></i>
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="page-header">
+			<div class="pull-right">
+				<a class="btn btn-primary" href="/#!/blogs/create" title="Add New" data-ng-show="authentication.user">
+					<i class="fa fa-plus"></i>
+				</a>
+			</div>
+			<h1>Blogs</h1>
+		</div>
+		<div class="list-group">
+			<a data-ng-repeat="blog in blogs" data-ng-href="#!/blogs/{{blog._id}}" class="list-group-item">
+				<small class="list-group-item-text">
+					Posted on
+					<span data-ng-bind="blog.created | date:'mediumDate'"></span>
+				</small>
+				<h4 class="list-group-item-heading" data-ng-bind="blog.title"></h4>
+				<p class="list-group-item-text" data-ng-bind="trimContent(blog.content, 200)"></p>
 			</a>
 		</div>
-		<h1>Blogs</h1>
-	</div>
-	<div class="list-group">
-		<a data-ng-repeat="blog in blogs" data-ng-href="#!/blogs/{{blog._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="blog.created | date:'mediumDate'"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="blog.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="blog.content"></p>
-		</a>
-	</div>
-	<div class="alert alert-warning text-center" data-ng-if="blogs.$resolved && !blogs.length" data-ng-show="authentication.user">
-		No blogs yet, why don't you <a href="/#!/blogs/create">create one</a>?
+		<div class="alert alert-warning text-center" data-ng-if="blogs.$resolved && !blogs.length" data-ng-show="authentication.user">
+			No blogs yet, why don't you <a href="/#!/blogs/create">create one</a>?
+		</div>
 	</div>
 </section>
