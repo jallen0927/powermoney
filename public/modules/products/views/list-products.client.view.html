@@ -14,7 +14,7 @@
 			<p class="list-group-item-text" data-ng-bind="product.content"></p>
 		</a>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="products.$resolved && !products.length">
+	<div class="alert alert-warning text-center" data-ng-if="products.$resolved && !products.length"  data-ng-show="authentication.user">
 		No products yet, why don't you <a href="/#!/products/create">create one</a>?
 	</div>
 </section>

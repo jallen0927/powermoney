@@ -12,7 +12,7 @@
 			<p class="list-group-item-text" data-ng-bind="blog.content"></p>
 		</a>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="blogs.$resolved && !blogs.length">
+	<div class="alert alert-warning text-center" data-ng-if="blogs.$resolved && !blogs.length" data-ng-show="authentication.user">
 		No blogs yet, why don't you <a href="/#!/blogs/create">create one</a>?
 	</div>
 </section>

@@ -10,8 +10,8 @@ angular.module('contacts').config(['$stateProvider',
 			templateUrl: 'modules/contacts/views/list-contacts.client.view.html'
 		}).
 		state('createContact', {
-			url: '/contacts/create',
-			templateUrl: 'modules/contacts/views/create-contact.client.view.html'
+			url: '/contactus',
+			templateUrl: 'modules/contacts/views/contactus.client.view.html'
 		}).
 		state('viewContact', {
 			url: '/contacts/:contactId',
