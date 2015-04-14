@@ -8,10 +8,7 @@ angular.module('plans').controller('PlansController', ['$scope', '$stateParams',
 		// Create new Plan
 		$scope.create = function() {
 			// Create new Plan object
-			var plan = new Plans({
-				title: this.title,
-				content: this.content
-			});
+			var plan = new Plans($scope.plan);
 
 			// Redirect after save
 			plan.$save(function(response) {

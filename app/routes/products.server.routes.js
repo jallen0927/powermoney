@@ -14,8 +14,8 @@ module.exports = function(app) {
 
 	app.route('/products/:productId')
 		.get(products.read)
-		.put(users.requiresLogin, products.hasAuthorization, products.update)
-		.delete(users.requiresLogin, products.hasAuthorization, products.delete);
+		.put(users.requiresLogin, products.update)
+		.delete(users.requiresLogin, products.delete);
 
 	// Finish by binding the product middleware
 	app.param('productId', products.productByID);

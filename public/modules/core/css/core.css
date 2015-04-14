@@ -1,5 +1,5 @@
 .content {
-	margin-top: 100px;
+	margin-top: 70px;
 }
 .undecorated-link:hover {
 	text-decoration: none;
@@ -22,8 +22,4 @@ body.ng-cloak
 header .navbar-brand img {
 	width: 200px;
 	max-width: none;
-}
-
-h2, h3 {
-	padding-bottom: 10px;
 }

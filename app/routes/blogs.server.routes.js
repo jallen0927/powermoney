@@ -14,8 +14,8 @@ module.exports = function(app) {
 
 	app.route('/blogs/:blogId')
 		.get(blogs.read)
-		.put(users.requiresLogin, blogs.hasAuthorization, blogs.update)
-		.delete(users.requiresLogin, blogs.hasAuthorization, blogs.delete);
+		.put(users.requiresLogin, blogs.update)
+		.delete(users.requiresLogin, blogs.delete);
 
 	// Finish by binding the blog middleware
 	app.param('blogId', blogs.blogByID);
