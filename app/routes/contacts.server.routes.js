@@ -4,19 +4,19 @@
  * Module dependencies.
  */
 var users = require('../../app/controllers/users.server.controller'),
-	orders = require('../../app/controllers/orders.server.controller');
+	contacts = require('../../app/controllers/contacts.server.controller');
 
 module.exports = function(app) {
-	// Order Routes
-	app.route('/orders')
-		.get(orders.list)
-		.post(users.requiresLogin, orders.create);
+	// Contact Routes
+	app.route('/contacts')
+		.get(contacts.list)
+		.post(users.requiresLogin, contacts.create);
 
-	app.route('/orders/:orderId')
-		.get(orders.read)
-		.put(users.requiresLogin, orders.hasAuthorization, orders.update)
-		.delete(users.requiresLogin, orders.hasAuthorization, orders.delete);
+	app.route('/contacts/:contactId')
+		.get(contacts.read)
+		.put(users.requiresLogin, contacts.hasAuthorization, contacts.update)
+		.delete(users.requiresLogin, contacts.hasAuthorization, contacts.delete);
 
-	// Finish by binding the order middleware
-	app.param('orderId', orders.orderByID);
+	// Finish by binding the contact middleware
+	app.param('contactId', contacts.contactByID);
 };

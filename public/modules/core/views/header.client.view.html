@@ -32,6 +32,7 @@
 		</ul>
 			-->
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+			{{authentication.user}}
 			<li ui-route="/aboutus" ng-class="{active: $uiRoute}">
 				<a href="/#!/aboutus">About Us</a>
 			</li>
@@ -58,22 +59,22 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="/#!/admin/users">Manage users</a>
+						<a href="/#!/users">Manage users</a>
 					</li>
 					<li>
-						<a href="/#!/admin/plans">Manage Plans</a>
+						<a href="/#!/plans">Manage Plans</a>
 					</li>
 					<li>
-						<a href="/#!/admin/orders">Manage Orders</a>
+						<a href="/#!/orders">Manage Orders</a>
 					</li>
 					<li>
-						<a href="/#!/admin/blogs">Manage Blogs</a>
+						<a href="/#!/blogs">Manage Blogs</a>
 					</li>
 					<li>
-						<a href="/#!/admin/products">Manage Products</a>
+						<a href="/#!/products">Manage Products</a>
 					</li>
 					<li>
-						<a href="/#!/admin/contacts">Manage Contacts</a>
+						<a href="/#!/contacts">Manage Contacts</a>
 					</li>
 						<!--
 					<li data-ng-show="authentication.user.provider === 'local'">

@@ -4,19 +4,19 @@
  * Module dependencies.
  */
 var users = require('../../app/controllers/users.server.controller'),
-	articles = require('../../app/controllers/articles.server.controller');
+	blogs = require('../../app/controllers/blogs.server.controller');
 
 module.exports = function(app) {
-	// Article Routes
-	app.route('/articles')
-		.get(articles.list)
-		.post(users.requiresLogin, articles.create);
+	// Blog Routes
+	app.route('/blogs')
+		.get(blogs.list)
+		.post(users.requiresLogin, blogs.create);
 
-	app.route('/articles/:articleId')
-		.get(articles.read)
-		.put(users.requiresLogin, articles.hasAuthorization, articles.update)
-		.delete(users.requiresLogin, articles.hasAuthorization, articles.delete);
+	app.route('/blogs/:blogId')
+		.get(blogs.read)
+		.put(users.requiresLogin, blogs.hasAuthorization, blogs.update)
+		.delete(users.requiresLogin, blogs.hasAuthorization, blogs.delete);
 
-	// Finish by binding the article middleware
-	app.param('articleId', articles.articleByID);
+	// Finish by binding the blog middleware
+	app.param('blogId', blogs.blogByID);
 };

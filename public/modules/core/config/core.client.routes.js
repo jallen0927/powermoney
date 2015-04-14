@@ -11,14 +11,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		state('home', {
 			url: '/',
 			templateUrl: 'modules/core/views/home.client.view.html'
-		}).
-		state('listBlog', {
-			url: '/blogs',
-			templateUrl: 'modules/core/views/list.blogs.client.view.html'
-		}).
-		state('listProducts', {
-			url: '/products',
-			templateUrl: 'modules/core/views/list.products.client.view.html'
+		//}).
+		//state('listBlog', {
+		//	url: '/blogs',
+		//	templateUrl: 'modules/core/views/list.blogs.client.view.html'
+		//}).
+		//state('listProducts', {
+		//	url: '/products',
+		//	templateUrl: 'modules/core/views/list.products.client.view.html'
 		});
 	}
 ]);

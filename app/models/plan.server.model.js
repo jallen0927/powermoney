@@ -5,10 +5,10 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-var PowerPlanSchema = new Schema({
+var PlanSchema = new Schema({
 	//company: {
 	//	type: Schema.ObjectId,
-	//	ref: 'PowerCompany'
+	//	ref: 'Company'
 	//},
 	company: {
 		type: String,
@@ -58,4 +58,4 @@ var PowerPlanSchema = new Schema({
 	}
 });
 
-mongoose.model('PowerPlan', PowerPlanSchema);
+mongoose.model('Plan', PlanSchema);

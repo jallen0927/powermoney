@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 /**
  * PowerCompany Schema
  */
-var PowerCompanySchema = new Schema({
+var CompanySchema = new Schema({
 	name: {
 		type: String,
 		default: '',
@@ -26,4 +26,4 @@ var PowerCompanySchema = new Schema({
 	}
 });
 
-mongoose.model('PowerCompany', PowerCompanySchema);
+mongoose.model('Company', CompanySchema);

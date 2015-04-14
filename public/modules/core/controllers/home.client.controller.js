@@ -12,14 +12,6 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		$scope.init = function() {
 			var autoComplete,
 				addressField = document.getElementById('address');
-			//var componentForm = {
-			//	street_number: 'short_name',
-			//	route: 'long_name',
-			//	locality: 'long_name',
-			//	administrative_area_level_1: 'short_name',
-			//	country: 'long_name',
-			//	postal_code: 'short_name'
-			//};
 			autoComplete = new google.maps.places.Autocomplete(
 				/** @type {HTMLInputElement} */
 				addressField,
@@ -33,7 +25,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 
 		$scope.comparePlan = function() {
 
-			$http.get('/admin/plans').success(function(plans){
+			$http.get('/plans').success(function(plans){
 				for(var i=0; i<plans.length; i++) {
 					plans[i].result = calResult(plans[i]).toFixed(2);
 				}
