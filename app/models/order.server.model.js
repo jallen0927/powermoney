@@ -22,7 +22,7 @@ var OrderSchema = new Schema({
 		trim: true,
 		required: 'firstName cannot be blank'
 	},
-	LastName: {
+	lastName: {
 		type: String,
 		default: '',
 		trim: true,

@@ -2,21 +2,27 @@
 	<div class="page-header">
 		<h1>Orders</h1>
 	</div>
-	<div class="list-group">
-		<a data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="order.created | date:'mediumDate'"></span>
-				by
-				<span data-ng-bind="order.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="order.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="order.content"></p>
-		</a>
-	</div>
-		<!--
-	<div class="alert alert-warning text-center" data-ng-if="orders.$resolved && !orders.length">
-		No orders yet, why don't you <a href="/#!/orders/create">create one</a>?
-	</div>
-		-->
+	<table class="table">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Mobile Number</th>
+			<th>Actions</th>
+		</tr>
+		<tr data-ng-repeat="order in orders">
+			<td data-ng-bind="order.firstName"></td>
+			<td data-ng-bind="order.lastName"></td>
+			<td data-ng-bind="order.mobile"></td>
+			<td>
+				<a class="btn btn-primary btn-xs" data-ng-href="#!/orders/{{order._id}}" title="View">
+					<i class="fa fa-eye"></i>
+				</a>
+				<!--
+            <a class="btn btn-info btn-xs" href="/#!/orders/{{order._id}}/edit" title="Replied">
+                <i class="fa fa-pencil"></i>
+            </a>
+                -->
+			</td>
+		</tr>
+	</table>
 </section>

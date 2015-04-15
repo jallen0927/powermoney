@@ -1,22 +1,111 @@
 <section data-ng-controller="OrdersController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="order.title"></h1>
+	<div class="col-md-offset-3 col-md-6">
+		<div class="page-header">
+			<h3>From {{order.name}}</h3>
+		</div>
+		<ul class="list-group">
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Title</h4>
+				<p class="list-group-item-text" data-ng-bind="order.title"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">First Name</h4>
+				<p class="list-group-item-text" data-ng-bind="order.firstName"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Last Name</h4>
+				<p class="list-group-item-text" data-ng-bind="order.lastName"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Last Name</h4>
+				<p class="list-group-item-text" data-ng-bind="order.dateOfBirth"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Driver License 5A</h4>
+				<p class="list-group-item-text" data-ng-bind="order.driver5a"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Driver License 5B</h4>
+				<p class="list-group-item-text" data-ng-bind="order.driver5b"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Mobile Number</h4>
+				<p class="list-group-item-text" data-ng-bind="order.mobile"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Home Number</h4>
+				<p class="list-group-item-text" data-ng-bind="order.homeNumber"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Work Number</h4>
+				<p class="list-group-item-text" data-ng-bind="order.workNumber"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Email</h4>
+				<p class="list-group-item-text" data-ng-bind="order.email"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">If you have joint account, please provide the name of the holder</h4>
+				<p class="list-group-item-text" data-ng-bind="order.jointName"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Date of birth for the holder of joint account</h4>
+				<p class="list-group-item-text" data-ng-bind="order.jointDob"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">If there is alternative contact, please provide his/her name</h4>
+				<p class="list-group-item-text" data-ng-bind="order.altName"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Phone number for alternative contact</h4>
+				<p class="list-group-item-text" data-ng-bind="order.altPhone"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">If there is authority person, please provide his/her name</h4>
+				<p class="list-group-item-text" data-ng-bind="order.authPerson"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Current power & gas company</h4>
+				<p class="list-group-item-text" data-ng-bind="order.currentCompany"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">If the premise has a vulnerable person or medical equipment requires power to run?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.medical"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Location of the electricity meter</h4>
+				<p class="list-group-item-text" data-ng-bind="order.electrMeter"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Location of the gas meter</h4>
+				<p class="list-group-item-text" data-ng-bind="order.gasMeter"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">ocation of the LPG bottles</h4>
+				<p class="list-group-item-text" data-ng-bind="order.lpgBottles"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">If the premise has a dog or any potential hazards?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.hazards"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Preferred payment option</h4>
+				<p class="list-group-item-text" data-ng-bind="order.payment"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Created</h4>
+				<p class="list-group-item-text" data-ng-bind="order.created"></p>
+			</li>
+
+
+
+		</ul>
+		<div class="text-center">
+			<a class="btn btn-info" data-ng-href="#!/orders" title="View">Back</a>
+			<!--
+        <a class="btn btn-primary" href="/#!/orders/{{order._id}}/edit" title="Replied">Replied</a>
+            -->
+			<a class="btn btn-danger" title="Delete" confirmed-click="remove();" ng-confirm-click="Do you really want to delete?">Delete</a>
+		</div>
 	</div>
-	<div class="pull-right" data-ng-show="authentication.user._id == order.user._id">
-		<a class="btn btn-primary" href="/#!/orders/{{order._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="order.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="order.user.displayName"></span>
-		</em>
-	</small>
-	<p class="lead" data-ng-bind="order.content"></p>
 </section>
