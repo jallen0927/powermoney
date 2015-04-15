@@ -33,7 +33,7 @@
 				<th>加入优惠</th>
 				<th>特殊</th>
 			</tr>
-			<tr data-ng-repeat="plan in plans | orderBy:'-result'">
+			<tr data-ng-repeat="plan in plans | orderBy:'result'">
 				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
 				<td data-ng-bind="plan.company"></td>
 				<td data-ng-bind="plan.class"></td>
