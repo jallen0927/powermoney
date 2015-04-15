@@ -98,12 +98,7 @@ var OrderSchema = new Schema({
 		default: false,
 		trim: true
 	},
-	vulnerable: {
-		type: Boolean,
-		default: false,
-		trim: true
-	},
-	meter: {
+	electrMeter: {
 		type: String,
 		default: '',
 		trim: true

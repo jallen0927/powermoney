@@ -1,24 +1,144 @@
 <section data-ng-controller="OrdersController">
-	<div class="page-header">
-		<h1>New Order</h1>
+	<div class="page-header text-center">
+		<h3>So you want to choose {{}}?</h3>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-8 col-md-offset-2">
 		<form name="orderForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': orderForm.title.$dirty && orderForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
 					<div class="controls">
-						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="content">Content</label>
+					<label class="control-label" for="firstName">First Name</label>
 					<div class="controls">
-						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+						<input name="firstName" data-ng-model="firstName" id="firstName" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-default">
+					<label class="control-label" for="LastName">Last Name</label>
+					<div class="controls">
+						<input name="LastName" data-ng-model="LastName" id="LastName" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="dataOfBirth">Date of Birth</label>
+					<div class="controls">
+						<input name="dataOfBirth" data-ng-model="dataOfBirth" id="dataOfBirth" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="driver5a">Driver License 5A</label>
+					<div class="controls">
+						<input name="driver5a" data-ng-model="driver5a" id="driver5a" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="driver5b">Driver License 5B</label>
+					<div class="controls">
+						<input name="driver5b" data-ng-model="driver5b" id="driver5b" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="mobile">Mobile Number</label>
+					<div class="controls">
+						<input name="mobile" data-ng-model="mobile" id="mobile" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="homeNumber">Home Number</label>
+					<div class="controls">
+						<input name="homeNumber" data-ng-model="homeNumber" id="homeNumber" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="workNumber">Work Number</label>
+					<div class="controls">
+						<input name="workNumber" data-ng-model="workNumber" id="workNumber" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<input name="email" data-ng-model="email" id="email" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="jointName">If you have joint account, please provide the name of the holder</label>
+					<div class="controls">
+						<input name="jointName" data-ng-model="jointName" id="jointName" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="jointDob">Date of birth for the holder of joint account</label>
+					<div class="controls">
+						<input name="jointDob" data-ng-model="jointDob" id="jointDob" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="altName">If there is alternative contact, please provide his/her name</label>
+					<div class="controls">
+						<input name="altName" data-ng-model="altName" id="altName" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="altPhone">Phone number for alternative contact</label>
+					<div class="controls">
+						<input name="altPhone" data-ng-model="altPhone" id="altPhone" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="authPerson">If there is authority person, please provide his/her name</label>
+					<div class="controls">
+						<input name="authPerson" data-ng-model="authPerson" id="authPerson" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="currentCompany">Current power & gas company</label>
+					<div class="controls">
+						<input name="currentCompany" data-ng-model="currentCompany" id="currentCompany" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="medical">If the premise has a vulnerable person or medical equipment requires power to run?</label>
+					<div class="controls">
+						<input name="medical" data-ng-model="medical" id="medical" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="electrMeter">Location of the electricity meter</label>
+					<div class="controls">
+						<input name="electrMeter" data-ng-model="electrMeter" id="electrMeter" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="gasMeter">Location of the gas meter</label>
+					<div class="controls">
+						<input name="gasMeter" data-ng-model="gasMeter" id="gasMeter" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="lpgBottles">Location of the LPG bottles</label>
+					<div class="controls">
+						<input name="lpgBottles" data-ng-model="lpgBottles" id="lpgBottles" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="hazards">If the premise has a dog or any potential hazards?</label>
+					<div class="controls">
+						<input name="hazards" data-ng-model="hazards" id="hazards" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="payment">Preferred payment option</label>
+					<div class="controls">
+						<input name="payment" data-ng-model="payment" id="payment" class="form-control">
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<input type="submit" class="btn btn-primary" value="Submit">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

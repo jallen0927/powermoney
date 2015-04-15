@@ -28,7 +28,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 			$http.get('/plans').success(function(plans){
 				for(var i=0; i<plans.length; i++) {
 					plans[i].result = calResult(plans[i]).toFixed(2);
-					plans[i].result = parseFloat(plans[i].result)
+					plans[i].result = parseFloat(plans[i].result);
 				}
 
 				$scope.plans = plans;
@@ -56,7 +56,6 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.goBack = function() {
-			$scope.entry = undefined;
 			$scope.showResult = false;
 		};
 
