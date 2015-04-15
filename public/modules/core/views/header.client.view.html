@@ -33,6 +33,9 @@
 			-->
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			{{authentication.user}}
+			<li ui-route="/" ng-class="{active: $uiRoute}">
+				<a href="/#!/">Calculation</a>
+			</li>
 			<li ui-route="/aboutus" ng-class="{active: $uiRoute}">
 				<a href="/#!/aboutus">About Us</a>
 			</li>
@@ -47,9 +50,6 @@
 			<li class="divider-vertical"></li>
 			<li ui-route="/products" ng-class="{active: $uiRoute}">
 				<a href="/#!/products">Products</a>
-			</li>
-			<li ui-route="/admin/login" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Login</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">

@@ -14,7 +14,9 @@
 					</div>
 					<div class="text-center form-group">
 						<button type="submit" class="btn btn-large btn-primary">提交</button>
+							<!--
 						<input type="button" class="btn btn-large btn-primary" data-ng-click="reset" value="重置">
+							-->
 					</div>
 						<!--
 					<div data-ng-show="success" class="text-center text-success">
@@ -35,7 +37,7 @@
 				<th>加入优惠</th>
 				<th>特殊</th>
 			</tr>
-			<tr data-ng-repeat="plan in plans">
+			<tr data-ng-repeat="plan in plans | orderBy:'-result'">
 				<td data-ng-bind="plan.company"></td>
 				<td data-ng-bind="plan.class"></td>
 				<td data-ng-bind="plan.result"></td>
@@ -48,8 +50,10 @@
 				</td>
 			</tr>
 		</table>
-		<div class="col-md-4 col-md-offset-0 text-center">
+			<!--
+		<div class="col-md-4 col-md-offset-0 text-center" data-ng-hide="showResult">
 			<h4>Latest News</h4>
 		</div>
+			-->
 	</div>
 </section>

@@ -8,18 +8,12 @@ angular.module('contacts').controller('ContactsController', ['$scope', '$statePa
 		// Create new Contact
 		$scope.create = function() {
 			// Create new Contact object
-			var contact = new Contacts({
-				title: this.title,
-				content: this.content
-			});
+			var contact = new Contacts($scope.contact);
 
 			// Redirect after save
 			contact.$save(function(response) {
-				$location.path('contacts/' + response._id);
 
-				// Clear form fields
-				$scope.title = '';
-				$scope.content = '';
+				$scope.success = true;
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

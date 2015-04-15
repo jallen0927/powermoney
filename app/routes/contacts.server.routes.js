@@ -10,7 +10,7 @@ module.exports = function(app) {
 	// Contact Routes
 	app.route('/contacts')
 		.get(contacts.list)
-		.post(users.requiresLogin, contacts.create);
+		.post(contacts.create);
 
 	app.route('/contacts/:contactId')
 		.get(contacts.read)
