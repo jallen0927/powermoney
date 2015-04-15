@@ -8,20 +8,18 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 		// Create new Order
 		$scope.create = function() {
 			// Create new Order object
-			var order = new Orders({
-				title: this.title,
-				content: this.content
-			});
+			var submitOrder = $scope.order;
+			submitOrder.medical = (submitOrder.medical === "Yes");
+			submitOrder.hazards = (submitOrder.hazards === "Yes");
+
+			var order = new Orders($scope.order);
 
 			// Redirect after save
 			order.$save(function(response) {
-				$location.path('orders/' + response._id);
-
-				// Clear form fields
-				$scope.title = '';
-				$scope.content = '';
+				//$location.path('orders/' + response._id);
+				$scope.success = true;
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
+				$scope.error = errorResponse.date.message;
 			});
 		};
 
@@ -49,7 +47,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			order.$update(function() {
 				$location.path('orders/' + order._id);
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
+				$scope.error = errorResponse.date.message;
 			});
 		};
 
@@ -63,6 +61,22 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
 			});
+		};
+
+		// Datepicker
+
+		$scope.dateOfBirth_open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.dateOfBirth_opened = true;
+		};
+
+		$scope.jointDob_open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.jointDob_opened = true;
 		};
 	}
 ]);

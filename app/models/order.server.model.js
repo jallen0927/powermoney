@@ -28,7 +28,7 @@ var OrderSchema = new Schema({
 		trim: true,
 		required: 'LastName cannot be blank'
 	},
-	dataOfBirth: {
+	dateOfBirth: {
 		type: Date,
 		default: Date.now(),
 		trim: true

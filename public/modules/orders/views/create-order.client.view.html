@@ -1,140 +1,168 @@
 <section data-ng-controller="OrdersController">
 	<div class="page-header text-center">
-		<h3>So you want to choose {{}}?</h3>
+		<h3 data-ng-hide="success">So you want to choose {{}}?</h3>
 	</div>
-	<div class="col-md-8 col-md-offset-2">
-		<form name="orderForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+	<div class="col-md-6 col-md-offset-3">
+		<form name="orderForm" class="form-horizontal" data-ng-submit="create()" novalidate autocomplete="on" data-ng-hide="success">
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': orderForm.title.$dirty && orderForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
-					<div class="controls">
-						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" required>
-					</div>
+					<select class="form-control" id="title" data-ng-model="order.title" required>
+						<option>Mr</option>
+						<option>Miss</option>
+						<option>Mrs</option>
+						<option>Ms</option>
+						<option>Dr</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="firstName">First Name</label>
 					<div class="controls">
-						<input name="firstName" data-ng-model="firstName" id="firstName" class="form-control">
+						<input name="firstName" data-ng-model="order.firstName" id="firstName" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="LastName">Last Name</label>
 					<div class="controls">
-						<input name="LastName" data-ng-model="LastName" id="LastName" class="form-control">
+						<input name="LastName" data-ng-model="order.LastName" id="LastName" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="dataOfBirth">Date of Birth</label>
-					<div class="controls">
-						<input name="dataOfBirth" data-ng-model="dataOfBirth" id="dataOfBirth" class="form-control">
+					<label class="control-label" for="dateOfBirth">Date of Birth</label>
+					<div class="controls input-group">
+							<input type="text" name="dateOfBirth" data-ng-model="order.dateOfBirth" id="dateOfBirth" class="form-control" datepicker-popup="{{format}}" is-open="dateOfBirth_opened" required />
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="dateOfBirth_open($event)">
+									<i class="glyphicon glyphicon-calendar"></i>
+								</button>
+							</span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="driver5a">Driver License 5A</label>
 					<div class="controls">
-						<input name="driver5a" data-ng-model="driver5a" id="driver5a" class="form-control">
+						<input name="driver5a" data-ng-model="order.driver5a" id="driver5a" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="driver5b">Driver License 5B</label>
 					<div class="controls">
-						<input name="driver5b" data-ng-model="driver5b" id="driver5b" class="form-control">
+						<input name="driver5b" data-ng-model="order.driver5b" id="driver5b" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="mobile">Mobile Number</label>
 					<div class="controls">
-						<input name="mobile" data-ng-model="mobile" id="mobile" class="form-control">
+						<input name="mobile" data-ng-model="order.mobile" id="mobile" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="homeNumber">Home Number</label>
 					<div class="controls">
-						<input name="homeNumber" data-ng-model="homeNumber" id="homeNumber" class="form-control">
+						<input name="homeNumber" data-ng-model="order.homeNumber" id="homeNumber" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="workNumber">Work Number</label>
 					<div class="controls">
-						<input name="workNumber" data-ng-model="workNumber" id="workNumber" class="form-control">
+						<input name="workNumber" data-ng-model="order.workNumber" id="workNumber" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="email">Email</label>
 					<div class="controls">
-						<input name="email" data-ng-model="email" id="email" class="form-control">
+						<input type="email" name="email" data-ng-model="order.email" id="email" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="jointName">If you have joint account, please provide the name of the holder</label>
 					<div class="controls">
-						<input name="jointName" data-ng-model="jointName" id="jointName" class="form-control">
+						<input name="jointName" data-ng-model="order.jointName" id="jointName" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="jointDob">Date of birth for the holder of joint account</label>
-					<div class="controls">
-						<input name="jointDob" data-ng-model="jointDob" id="jointDob" class="form-control">
+					<div class="controls input-group">
+						<input name="jointDob" data-ng-model="order.jointDob" id="jointDob" class="form-control" datepicker-popup="{{format}}" is-open="jointDob_opened">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="jointDob_open($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="altName">If there is alternative contact, please provide his/her name</label>
 					<div class="controls">
-						<input name="altName" data-ng-model="altName" id="altName" class="form-control">
+						<input name="altName" data-ng-model="order.altName" id="altName" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="altPhone">Phone number for alternative contact</label>
 					<div class="controls">
-						<input name="altPhone" data-ng-model="altPhone" id="altPhone" class="form-control">
+						<input name="altPhone" data-ng-model="order.altPhone" id="altPhone" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="authPerson">If there is authority person, please provide his/her name</label>
 					<div class="controls">
-						<input name="authPerson" data-ng-model="authPerson" id="authPerson" class="form-control">
+						<input name="authPerson" data-ng-model="order.authPerson" id="authPerson" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="currentCompany">Current power & gas company</label>
 					<div class="controls">
-						<input name="currentCompany" data-ng-model="currentCompany" id="currentCompany" class="form-control">
+						<input name="currentCompany" data-ng-model="order.currentCompany" id="currentCompany" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="medical">If the premise has a vulnerable person or medical equipment requires power to run?</label>
 					<div class="controls">
-						<input name="medical" data-ng-model="medical" id="medical" class="form-control">
+						<select name="medical" data-ng-model="order.medical" id="medical" class="form-control">
+							<option>Yes</option>
+							<option>No</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="electrMeter">Location of the electricity meter</label>
 					<div class="controls">
-						<input name="electrMeter" data-ng-model="electrMeter" id="electrMeter" class="form-control">
+						<input name="electrMeter" data-ng-model="order.electrMeter" id="electrMeter" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="gasMeter">Location of the gas meter</label>
 					<div class="controls">
-						<input name="gasMeter" data-ng-model="gasMeter" id="gasMeter" class="form-control">
+						<input name="gasMeter" data-ng-model="order.gasMeter" id="gasMeter" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="lpgBottles">Location of the LPG bottles</label>
 					<div class="controls">
-						<input name="lpgBottles" data-ng-model="lpgBottles" id="lpgBottles" class="form-control">
+						<input name="lpgBottles" data-ng-model="order.lpgBottles" id="lpgBottles" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="hazards">If the premise has a dog or any potential hazards?</label>
 					<div class="controls">
-						<input name="hazards" data-ng-model="hazards" id="hazards" class="form-control">
+						<select name="hazards" data-ng-model="order.hazards" id="hazards" class="form-control">
+							<option>Yes</option>
+							<option>No</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="payment">Preferred payment option</label>
 					<div class="controls">
-						<input name="payment" data-ng-model="payment" id="payment" class="form-control">
+						<select name="payment" data-ng-model="order.payment" id="payment" class="form-control">
+							<option>Direct Debit</option>
+							<option>Manual Online Payment</option>
+							<option>Credit Card</option>
+							<option>PostShop</option>
+							<option>FreePost</option>
+							<option>Phone Banking</option>
+							<option>SmoothPay</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group text-center">
@@ -145,5 +173,6 @@
 				</div>
 			</fieldset>
 		</form>
+		<h3 data-ng-show="success" class="text-success">Thanks for sign up, we will process it soon</h3>
 	</div>
 </section>
