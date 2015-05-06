@@ -5,15 +5,15 @@
 			<form name="entryForm" data-ng-submit="comparePlan()" data-ng-hide="showResult" class="form-horizontal text-center" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
-						<label for="address">地址</label>
+						<label for="address">Address</label>
 						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="这里输入您的地址">
 					</div>
 					<div class="form-group">
-						<label for="amount">每月平均用电量</label>
+						<label for="amount">Average amount per month</label>
 						<input type="number" required="required" min="1" id="amount" name="amount" class="form-control" data-ng-model="entry.amount" placeholder="您的每月平均用电量">
 					</div>
 					<div class="text-center form-group">
-						<button type="submit" class="btn btn-large btn-primary">提交</button>
+						<button type="submit" class="btn btn-large btn-primary">Submit</button>
 							<!--
 						<input type="button" class="btn btn-large btn-primary" data-ng-click="reset" value="重置">
 							-->
@@ -26,20 +26,18 @@
 		</div>
 		<table class="table" data-ng-show="showResult">
 			<tr>
+				<th>Expect Cost</th>
+				<th>Company Name</th>
+				<th>Plan Name</th>
+				<th>Special</th>
 				<th>Signup</th>
-				<th>名称</th>
-				<th>类型</th>
-				<th>计算结果</th>
-				<th>加入优惠</th>
-				<th>特殊</th>
 			</tr>
 			<tr data-ng-repeat="plan in plans | orderBy:'result'">
-				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
-				<td data-ng-bind="plan.company"></td>
-				<td data-ng-bind="plan.class"></td>
 				<td>${{plan.result}}</td>
-				<td data-ng-bind="plan.coupon"></td>
+				<td data-ng-bind="plan.company"></td>
+				<td data-ng-bind="plan.name"></td>
 				<td data-ng-bind="plan.special"></td>
+				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
 			</tr>
 		</table>
 		<div class="text-center" data-ng-show="showResult">

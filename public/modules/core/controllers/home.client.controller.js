@@ -47,7 +47,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 			function calResult(plan) {
 				var a = parseFloat(plan.fixed) / 100.0,
 					b = parseFloat(plan.rate) / 100.0,
-					c = parseFloat(plan.discount) / 100.0,
+					c = parseFloat(plan.ppd) / 100.0,
 					x = parseFloat($scope.entry.amount) / 1.0;
 
 				return calFun(a, b, c, x);
