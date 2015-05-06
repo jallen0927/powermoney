@@ -15,10 +15,14 @@ var PlanSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	class: {
+	name: {
 		type: String,
 		default: '',
-		//enum: ['低用户', '标准用户'],
+		trim: true
+	},
+	area: {
+		type: String,
+		default: '',
 		trim: true
 	},
 	fixed: {
@@ -31,24 +35,19 @@ var PlanSchema = new Schema({
 		default: '0',
 		trim: true
 	},
-	levy: {
-		type: String,
-		default: 'inclusive',
-		trim: true
-	},
-	gst: {
-		type: String,
-		default: 'inclusive',
-		trim: true
-	},
-	discount: {
+	ratewgas: {
 		type: String,
 		default: '0',
 		trim: true
 	},
-	coupon: {
+	gst: {
 		type: String,
-		default: '无',
+		default: '0',
+		trim: true
+	},
+	ppd: {
+		type: String,
+		default: '0',
 		trim: true
 	},
 	special: {

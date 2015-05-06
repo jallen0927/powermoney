@@ -4,15 +4,15 @@
 			<h1 data-ng-bind="plan.company"></h1>
 		</div>
 		<ul class="list-group">
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.company"></span>名称</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.class"></span>类型</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.fixed"></span>固定收费<br>(Cent/day)</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.rate"></span>单位收费<br>(Cent/kWH)</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.levy"></span>Electricity<br>Authority Levy<br>(Cent/KWH)</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.company"></span>Company Name</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.name"></span>Plan Name</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.area"></span>Area</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.fixed"></span>Daily Fixed Charge</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.rate"></span>Rate</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.ratewgas"></span>Variable Rate with Gas</li>
 			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.gst"></span>GST</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.discount"></span>及时付款折扣</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.coupon"></span>加入优惠</li>
-			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.special"></span>特殊</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.ppd"></span>Prompt Payment Discount</li>
+			<li  class="list-group-item"><span class="badge" data-ng-bind="plan.special"></span>Special Information</li>
 		</ul>
 		<div class="text-center">
 			<a class="btn btn-info" data-ng-href="#!/plans" title="View">Back</a>
