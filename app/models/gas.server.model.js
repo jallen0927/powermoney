@@ -1,0 +1,41 @@
+/**
+ * Created by xlin on 5/04/15.
+ */
+'use strict';
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
+
+var GasSchema = new Schema({
+	company: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	name: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	fixed: {
+		type: String,
+		default: '0',
+		trim: true
+	},
+	rate: {
+		type: String,
+		default: '0',
+		trim: true
+	},
+	gst: {
+		type: String,
+		default: '0',
+		trim: true
+	},
+	ppd: {
+		type: String,
+		default: '0',
+		trim: true
+	}
+});
+
+mongoose.model('Gas', GasSchema);
