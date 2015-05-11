@@ -20,22 +20,12 @@ var GplanSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	area: {
-		type: String,
-		default: '',
-		trim: true
-	},
 	fixed: {
 		type: String,
 		default: '0',
 		trim: true
 	},
 	rate: {
-		type: String,
-		default: '0',
-		trim: true
-	},
-	ratewgas: {
 		type: String,
 		default: '0',
 		trim: true
@@ -48,11 +38,6 @@ var GplanSchema = new Schema({
 	ppd: {
 		type: String,
 		default: '0',
-		trim: true
-	},
-	special: {
-		type: String,
-		default: '无',
 		trim: true
 	}
 });
