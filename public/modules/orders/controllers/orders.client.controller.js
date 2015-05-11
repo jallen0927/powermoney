@@ -9,8 +9,8 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 		$scope.create = function() {
 			// Create new Order object
 			var submitOrder = $scope.order;
-			submitOrder.medical = (submitOrder.medical === "Yes");
-			submitOrder.hazards = (submitOrder.hazards === "Yes");
+			submitOrder.medical = (submitOrder.medical === 'Yes');
+			submitOrder.hazards = (submitOrder.hazards === 'Yes');
 
 			var order = new Orders($scope.order);
 

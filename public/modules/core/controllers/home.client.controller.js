@@ -53,6 +53,10 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 				return calFun(a, b, c, x);
 			}
 
+			function decideArea(){
+
+			}
+
 		};
 
 		$scope.goBack = function() {

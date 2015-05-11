@@ -5,13 +5,22 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-var GasSchema = new Schema({
+var GplanSchema = new Schema({
+	//company: {
+	//	type: Schema.ObjectId,
+	//	ref: 'Company'
+	//},
 	company: {
 		type: String,
 		default: '',
 		trim: true
 	},
 	name: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	area: {
 		type: String,
 		default: '',
 		trim: true
@@ -26,6 +35,11 @@ var GasSchema = new Schema({
 		default: '0',
 		trim: true
 	},
+	ratewgas: {
+		type: String,
+		default: '0',
+		trim: true
+	},
 	gst: {
 		type: String,
 		default: '0',
@@ -35,7 +49,12 @@ var GasSchema = new Schema({
 		type: String,
 		default: '0',
 		trim: true
+	},
+	special: {
+		type: String,
+		default: '无',
+		trim: true
 	}
 });
 
-mongoose.model('Gas', GasSchema);
+mongoose.model('Gplan', GplanSchema);

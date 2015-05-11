@@ -1,0 +1,32 @@
+<section data-ng-controller="GplansController" data-ng-init="find()">
+	<div class="page-header">
+		<div class="pull-right">
+			<a class="btn btn-primary" href="/#!/gplans/create" title="Add New">
+				<i class="fa fa-plus"></i>
+			</a>
+		</div>
+		<h1>Gplans</h1>
+	</div>
+	<table class="table">
+		<tr>
+			<th>Company Name</th>
+			<th>Gplan Name</th>
+			<th>Action</th>
+		</tr>
+		<tr data-ng-repeat="gplan in gplans">
+			<td data-ng-bind="gplan.company"></td>
+			<td data-ng-bind="gplan.name"></td>
+			<td>
+				<a class="btn btn-primary btn-xs" data-ng-href="#!/gplans/{{gplan._id}}" title="View">
+					<i class="fa fa-eye"></i>
+				</a>
+				<a class="btn btn-info btn-xs" href="/#!/gplans/{{gplan._id}}/edit" title="Edit">
+					<i class="fa fa-pencil"></i>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div class="alert alert-warning text-center" data-ng-if="gplans.$resolved && !gplans.length">
+		No gplans yet, why don't you <a href="/#!/gplans/create">create one</a>?
+	</div>
+</section>

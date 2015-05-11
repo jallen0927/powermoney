@@ -12,6 +12,17 @@
 						<label for="amount">Monthly Consumption</label>
 						<input type="number" required="required" min="1" id="amount" name="amount" class="form-control" data-ng-model="entry.amount" placeholder="Your average monthly power consumption">
 					</div>
+					<div class="form-group">
+						<label for="wgas">Gas with Power?</label>
+						<select data-ng-model="entry.wgas" class="form-control" id="wgas" name="wgas">
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div class="form-group" data-ng-show="entry.wgas == 'yes'">
+						<label for="gasamount">Gas Monthly Consumption</label>
+						<input type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="Your average monthly gas consumption">
+					</div>
 					<div class="text-center form-group">
 						<button type="submit" class="btn btn-large btn-primary">Submit</button>
 							<!--
