@@ -6,22 +6,21 @@
 				<fieldset>
 					<div class="form-group">
 						<label for="address">Address</label>
-						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="Your home address">
+						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="Your home address" data-ng-change="resetError()">
 					</div>
 					<div class="form-group">
 						<label for="amount">Monthly Consumption</label>
 						<input type="number" required="required" min="1" id="amount" name="amount" class="form-control" data-ng-model="entry.amount" placeholder="Your average monthly power consumption">
 					</div>
 					<div class="form-group">
-						<label for="wgas">Gas with Power?</label>
-						<select data-ng-model="entry.wgas" class="form-control" id="wgas" name="wgas">
-							<option value="yes">Yes</option>
-							<option value="no">No</option>
-						</select>
+						<label for="wgas">
+							<input type="checkbox" data-ng-model="entry.wgas" id="wgas" name="wgas">
+							Gas with Power?
+						</label>
 					</div>
-					<div class="form-group" data-ng-show="entry.wgas == 'yes'">
+					<div class="form-group" data-ng-show="entry.wgas">
 						<label for="gasamount">Gas Monthly Consumption</label>
-						<input type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="Your average monthly gas consumption">
+						<input  data-ng-disabled="!entry.wgas" type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="Your average monthly gas consumption">
 					</div>
 					<div class="text-center form-group">
 						<button type="submit" class="btn btn-large btn-primary">Submit</button>
