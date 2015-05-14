@@ -18,8 +18,3 @@ body.ng-cloak
 {
 	display: block;
 }
-
-header .navbar-brand img {
-	width: 200px;
-	max-width: none;
-}
