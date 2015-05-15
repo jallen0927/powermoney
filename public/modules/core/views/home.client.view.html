@@ -1,7 +1,7 @@
-<section data-ng-controller="PubController" data-ng-init="init()">
-	<h2 class="col-md-12 text-center">Seize Power, Grab your Money</h2>
-	<div class="container">
-		<div class="col-sm-6 col-sm-offset-3">
+<div data-ng-controller="PubController" data-ng-init="init()" class="col-sm-12 col-md-6 col-md-offset-3 block-area">
+	<h2 class="text-center">Seize Power, Grab your Money</h2>
+	<div class="container col-sm-12">
+		<div class="">
 			<form name="entryForm" data-ng-submit="comparePlan()" data-ng-hide="showResult" class="form-horizontal text-center" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
@@ -39,6 +39,7 @@
 				<th>Expect Cost</th>
 				<th>Company Name</th>
 				<th>Plan Name</th>
+				<th>Area</th>
 				<th>Special</th>
 				<th>Signup</th>
 			</tr>
@@ -46,6 +47,7 @@
 				<td>${{plan.result}}</td>
 				<td data-ng-bind="plan.company"></td>
 				<td data-ng-bind="plan.name"></td>
+				<td data-ng-bind="plan.area"></td>
 				<td data-ng-bind="plan.special"></td>
 				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
 			</tr>
@@ -59,4 +61,4 @@
 		</div>
 			-->
 	</div>
-</section>
+</div>
