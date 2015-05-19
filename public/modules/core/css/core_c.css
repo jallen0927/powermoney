@@ -3,6 +3,16 @@ html, body {
   height: 100%;
   overflow: hidden; }
 
+.overflow-container {
+  height: 100%;
+  overflow: auto; }
+
+.bottom-action {
+  padding-bottom: 30px; }
+
+.block-middle {
+  margin-top: 50px; }
+
 body {
   position: absolute;
   left: 0;
@@ -10,24 +20,38 @@ body {
   background-image: url("/modules/core/img/main-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
-  body .content {
-    margin-top: 50px;
-    padding-bottom: 100px;
-    overflow: auto; }
+  background-size: cover;
+  font-family: 'Century Gothic';
+  color: #888; }
+  body h1 {
+    text-transform: capitalize; }
+  body #content {
+    padding-top: 50px;
+    padding-bottom: 100px; }
   body .block-area {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px; }
   body small, body .lead {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
-    padding: 5px; }
+    padding: 10px;
+    display: block;
+    margin-bottom: 20px;
+    position: static; }
+  body .lead {
+    font-size: 18px;
+    padding: 30px; }
   body .page-header {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     padding: 10px; }
   body #main-content {
-    margin-top: 70px; }
+    padding-top: 70px;
+    height: 100%;
+    overflow: auto; }
+    body #main-content section {
+      display: block;
+      overflow: auto; }
 
 header a.navbar-brand {
   display: block;

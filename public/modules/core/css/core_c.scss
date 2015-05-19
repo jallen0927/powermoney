@@ -4,6 +4,19 @@ html, body {
 	overflow: hidden;
 }
 
+.overflow-container {
+	height: 100%;
+	overflow: auto;
+}
+
+.bottom-action {
+	padding-bottom: 30px;
+}
+
+.block-middle {
+	margin-top: 50px;
+}
+
 body {
 	position: absolute;
 	left: 0;
@@ -12,23 +25,37 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	font-family: 'Century Gothic';
+	color: #888;
 
-	.content {
-		margin-top: 50px;
+	h1 {
+		text-transform: capitalize;
+	}
+
+	#content {
+		padding-top: 50px;
 		padding-bottom: 100px;
-		overflow: auto;
 	}
 
 	.block-area {
-		background-color: rgba(255, 255, 255, 0.85);
+		background-color: rgba(255, 255, 255, 0.9);
 		border-radius: 10px;
 	}
 
 	small, .lead {
 		background-color: rgba(255, 255, 255, 0.85);
 		border-radius: 10px;
-		padding: 5px;
+		padding: 10px;
+		display: block;
+		margin-bottom: 20px;
+		position: static;
 	}
+
+	.lead {
+		font-size: 18px;
+		padding: 30px;
+	}
+
 
 	.page-header {
 		background-color: rgba(255, 255, 255, 0.85);
@@ -37,8 +64,16 @@ body {
 	}
 
 	#main-content {
-		margin-top: 70px;
+		padding-top: 70px;
+		height: 100%;
+		overflow: auto;
+
+		section {
+			display: block;
+			overflow: auto;
+		}
 	}
+
 }
 
 header {
