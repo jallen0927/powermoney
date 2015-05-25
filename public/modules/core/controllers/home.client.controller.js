@@ -97,18 +97,12 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.calGas = function (gplan) {
-			console.log(gplan);
 			var a = parseFloat(gplan.fixed) / 100.0,
 				b = parseFloat(gplan.rate) / 100.0,
 				c = parseFloat(gplan.ppd) / 100.0,
 				x = parseFloat($scope.entry.amount),
 				P = (a * 30 + b * x) * 1.15 * (1 - c);
 
-			console.log(a);
-			console.log(b);
-			console.log(c);
-			console.log(x);
-			console.log(P);
 			return P;
 		};
 

@@ -126,6 +126,16 @@ var OrderSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	planType: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	planId: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	created: {
 		type: Date,
 		default: Date.now

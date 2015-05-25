@@ -23,3 +23,4 @@ angular.module('orders').config(['$stateProvider',
 		});
 	}
 ]);
+

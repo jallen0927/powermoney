@@ -1,9 +1,17 @@
 'use strict';
 
 // Orders controller
-angular.module('orders').controller('OrdersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Orders',
-	function($scope, $stateParams, $location, Authentication, Orders) {
+angular.module('orders').controller('OrdersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Orders', 'Plans', 'Gplans',
+	function($scope, $stateParams, $location, Authentication, Orders, Plans, Gplans) {
 		$scope.authentication = Authentication;
+
+		$scope.init = function() {
+			var routeParams = $location.search();
+			$scope.order = {};
+
+			if (routeParams.hasOwnProperty('gplan')) {$scope.order.planType = 'gplan'; $scope.order.planId = routeParams.gplan;}
+			if (routeParams.hasOwnProperty('plan')) {$scope.order.planType = 'plan'; $scope.order.planId = routeParams.plan;}
+		};
 
 		// Create new Order
 		$scope.create = function() {
@@ -19,7 +27,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 				//$location.path('orders/' + response._id);
 				$scope.success = true;
 			}, function(errorResponse) {
-				$scope.error = errorResponse.date.message;
+				$scope.error = errorResponse.data.message;
 			});
 		};
 
@@ -47,7 +55,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			order.$update(function() {
 				$location.path('orders/' + order._id);
 			}, function(errorResponse) {
-				$scope.error = errorResponse.date.message;
+				$scope.error = errorResponse.data.message;
 			});
 		};
 
@@ -61,6 +69,23 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
 			});
+			console.log($scope.order);
+			if ($scope.order.planType == 'plan') {
+				$scope.order.type = 'Power Plan';
+				$scope.plan = Plans.get({
+					planId: $scope.planId
+				});
+			}
+console.log($scope.order.planType);
+			if ($scope.order.planType == 'gplan') {
+				$scope.order.type = 'Gas Plan';
+				console.log($scope.order.type);
+				$scope.plan = Gplans.get({
+					planId: $scope.planId
+				});
+			}
+
+
 		};
 
 		// Datepicker
