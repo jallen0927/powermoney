@@ -24,9 +24,27 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.comparePlan = function() {
+			var results = [],
+				area = getArea();
 
 			$http.get('/plans').success(function(plans){
 
+				for(var i=0; i<plans.length; i++) {
+					if(plans[i].area !== area) {
+						continue;
+					}
+					plans[i].result = calResult(plans[i]).toFixed(2);
+					plans[i].result = parseFloat(plans[i].result);
+					results.push(plans[i]);
+				}
+
+				$scope.plans = results;
+				$scope.showResult = true;
+			}).error(function(response){
+				$scope.error = response.error;
+			});
+
+			function getArea() {
 				if(!($scope.entry.googlePlace.address_components[3] !== 'undefined' && $scope.entry.googlePlace.address_components[3].long_name === 'Auckland')) {
 					$scope.error = 'Sorry, only address in Auckland region is allowed.';
 					return false;
@@ -44,35 +62,20 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 					return false;
 				}
 
-				for(var i=0; i<plans.length; i++) {
-					if(plans[i].area !== area) {
-
-						plans.splice(i, 1);
-						continue;
-					}
-					plans[i].result = calResult(plans[i]).toFixed(2);
-					plans[i].result = parseFloat(plans[i].result);
-					plans[i].result = parseFloat(plans[i].result);
-				}
-
-				$scope.plans = plans;
-				$scope.showResult = true;
-			}).error(function(response){
-				$scope.error = response.error;
-			});
+				return area;
+			}
 
 			function calFun(a, b, c, x) {
 				var P;
-				P = (a * 30 + b * x) * 1.15 * (1 + c);
+				P = (a * 30 + b * x) * 1.15 * (1 - c);
 
 				return P;
 			}
 
 			function calResult(plan) {
 
-
-				var a = parseFloat(plan.fixed) / 100.0,
-					b = parseFloat(plan.rate) / 100.0,
+				var a = parseFloat(plan.fixed),
+					b = parseFloat(plan.rate),
 					c = parseFloat(plan.ppd) / 100.0,
 					x = parseFloat($scope.entry.amount) / 1.0;
 
