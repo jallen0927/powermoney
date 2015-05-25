@@ -36,6 +36,9 @@
 		</div>
 		<table class="table" data-ng-show="showResult">
 			<tr>
+				<td colspan="6"><h3>Your Power Plans</h3></td>
+			</tr>
+			<tr>
 				<th>Expect Cost</th>
 				<th>Company Name</th>
 				<th>Plan Name</th>
@@ -52,7 +55,26 @@
 				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
 			</tr>
 		</table>
-		<div class="text-center" data-ng-show="showResult">
+
+		<table class="table" data-ng-show="showResult && showGas">
+			<tr>
+				<td colspan="4"><h3>Your Gas Plans</h3></td>
+			</tr>
+			<tr>
+				<th>Expect Cost</th>
+				<th>Company Name</th>
+				<th>Plan Name</th>
+				<th>Signup</th>
+			</tr>
+			<tr data-ng-repeat="gplan in gplans | orderBy:'result'">
+				<td>${{gplan.result}}</td>
+				<td data-ng-bind="gplan.company"></td>
+				<td data-ng-bind="gplan.name"></td>
+				<td><a data-ng-href="/#!/orders/create?gplan={{gplan._id}}" class="btn btn-xs btn-success">Signup</a></td>
+			</tr>
+		</table>
+
+		<div class="text-center bottom-action" data-ng-show="showResult">
 			<button class="btn btn-primary" data-ng-click="goBack()">Back</button>
 		</div>
 			<!--

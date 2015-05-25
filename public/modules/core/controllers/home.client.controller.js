@@ -24,16 +24,16 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.comparePlan = function() {
-			var results = [],
-				area = getArea();
+			var area = $scope.getArea();
 
 			$http.get('/plans').success(function(plans){
+				var results = [];
 
 				for(var i=0; i<plans.length; i++) {
 					if(plans[i].area !== area) {
 						continue;
 					}
-					plans[i].result = calResult(plans[i]).toFixed(2);
+					plans[i].result = $scope.calPower(plans[i]).toFixed(2);
 					plans[i].result = parseFloat(plans[i].result);
 					results.push(plans[i]);
 				}
@@ -44,49 +44,72 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 				$scope.error = response.error;
 			});
 
-			function getArea() {
-				if(!($scope.entry.googlePlace.address_components[3] !== 'undefined' && $scope.entry.googlePlace.address_components[3].long_name === 'Auckland')) {
-					$scope.error = 'Sorry, only address in Auckland region is allowed.';
-					return false;
-				}
+			/**
+			 * If need calculate gas
+			 */
+			if ($scope.entry.wgas) {
+				$scope.showGas = true;
 
-				var suburb = $scope.entry.googlePlace.address_components[2].long_name,
-					area;
+				$http.get('/gplans').success(function(gplans){
+					var results = [];
 
-				if (northSuburbs.indexOf(suburb) !== -1) {
-					area = 'north';
-				} else if (southSuburbs.indexOf(suburb) !== -1) {
-					area = 'south';
-				} else {
-					$scope.error = 'Sorry, We cannot recognise your area.';
-					return false;
-				}
+					for(var i=0; i<gplans.length; i++) {
+						gplans[i].result = $scope.calGas(gplans[i]).toFixed(2);
+						gplans[i].result = parseFloat(gplans[i].result);
+						results.push(gplans[i]);
+					}
 
-				return area;
+					$scope.gplans = results;
+				});
 			}
 
-			function calFun(a, b, c, x) {
-				var P;
+		};
+
+		$scope.getArea = function () {
+			if(!($scope.entry.googlePlace.address_components[3] !== 'undefined' && $scope.entry.googlePlace.address_components[3].long_name === 'Auckland')) {
+				$scope.error = 'Sorry, only address in Auckland region is allowed.';
+				return false;
+			}
+
+			var suburb = $scope.entry.googlePlace.address_components[2].long_name,
+				area;
+
+			if (northSuburbs.indexOf(suburb) !== -1) {
+				area = 'north';
+			} else if (southSuburbs.indexOf(suburb) !== -1) {
+				area = 'south';
+			} else {
+				$scope.error = 'Sorry, We cannot recognise your area.';
+				return false;
+			}
+
+			return area;
+		};
+
+		$scope.calPower = function (plan) {
+			var a = parseFloat(plan.fixed),
+				b = parseFloat(plan.rate),
+				c = parseFloat(plan.ppd) / 100.0,
+				x = parseFloat($scope.entry.amount),
 				P = (a * 30 + b * x) * 1.15 * (1 - c);
 
-				return P;
-			}
+			return P;
+		};
 
-			function calResult(plan) {
+		$scope.calGas = function (gplan) {
+			console.log(gplan);
+			var a = parseFloat(gplan.fixed) / 100.0,
+				b = parseFloat(gplan.rate) / 100.0,
+				c = parseFloat(gplan.ppd) / 100.0,
+				x = parseFloat($scope.entry.amount),
+				P = (a * 30 + b * x) * 1.15 * (1 - c);
 
-				var a = parseFloat(plan.fixed),
-					b = parseFloat(plan.rate),
-					c = parseFloat(plan.ppd) / 100.0,
-					x = parseFloat($scope.entry.amount) / 1.0;
-
-				return calFun(a, b, c, x);
-			}
-
-			function calGas(plan) {
-
-			}
-
-
+			console.log(a);
+			console.log(b);
+			console.log(c);
+			console.log(x);
+			console.log(P);
+			return P;
 		};
 
 		$scope.goBack = function() {
