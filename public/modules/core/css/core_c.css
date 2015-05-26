@@ -30,7 +30,6 @@ body {
     padding-bottom: 100px; }
   body .block-area {
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
     margin-bottom: 20px; }
   body small, body .lead {
     background-color: rgba(255, 255, 255, 0.85);
@@ -53,6 +52,11 @@ body {
     body #main-content section {
       display: block;
       overflow: auto; }
+  body .about-img {
+    width: 100%;
+    height: auto; }
+  body .about-img:first-of-type {
+    margin-bottom: 50px; }
 
 header a.navbar-brand {
   display: block;
