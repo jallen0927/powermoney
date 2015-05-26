@@ -88,7 +88,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 
 		$scope.calPower = function (plan) {
 			var a = parseFloat(plan.fixed),
-				b = parseFloat(plan.rate),
+				b = $scope.entry.wgas ? parseFloat(plan.ratewgas) : parseFloat(plan.rate),
 				c = parseFloat(plan.ppd) / 100.0,
 				x = parseFloat($scope.entry.amount),
 				P = (a * 30 + b * x) * 1.15 * (1 - c);
