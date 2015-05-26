@@ -68,28 +68,24 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 		$scope.findOne = function() {
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
+			}, function(od){
+				if (od.planType == 'plan') {
+					$scope.order.type = 'Power Plan';
+					$scope.plan = Plans.get({
+						planId: od.planId
+					});
+				}
+				if (od.planType == 'gplan') {
+					$scope.order.type = 'Gas Plan';
+					$scope.plan = Gplans.get({
+						planId: od.planId
+					});
+				}
 			});
-			console.log($scope.order);
-			if ($scope.order.planType == 'plan') {
-				$scope.order.type = 'Power Plan';
-				$scope.plan = Plans.get({
-					planId: $scope.planId
-				});
-			}
-console.log($scope.order.planType);
-			if ($scope.order.planType == 'gplan') {
-				$scope.order.type = 'Gas Plan';
-				console.log($scope.order.type);
-				$scope.plan = Gplans.get({
-					planId: $scope.planId
-				});
-			}
-
 
 		};
 
 		// Datepicker
-
 		$scope.dateOfBirth_open = function($event) {
 			$event.preventDefault();
 			$event.stopPropagation();
