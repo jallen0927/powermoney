@@ -48,7 +48,6 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 			 * If need calculate gas
 			 */
 			if ($scope.entry.wgas) {
-				$scope.showGas = true;
 
 				$http.get('/gplans').success(function(gplans){
 					var results = [];

@@ -69,13 +69,13 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
 			}, function(od){
-				if (od.planType == 'plan') {
+				if (od.planType === 'plan') {
 					$scope.order.type = 'Power Plan';
 					$scope.plan = Plans.get({
 						planId: od.planId
 					});
 				}
-				if (od.planType == 'gplan') {
+				if (od.planType === 'gplan') {
 					$scope.order.type = 'Gas Plan';
 					$scope.plan = Gplans.get({
 						planId: od.planId
