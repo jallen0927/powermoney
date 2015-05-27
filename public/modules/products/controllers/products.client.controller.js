@@ -1,8 +1,8 @@
 'use strict';
 
 // Products controller
-angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
-	function($scope, $stateParams, $location, Authentication, Products) {
+angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products', 'Upload',
+	function($scope, $stateParams, $location, Authentication, Products, Upload) {
 		$scope.authentication = Authentication;
 
 		// Create new Product
@@ -64,5 +64,25 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 				productId: $stateParams.productId
 			});
 		};
+
+		//Handle image upload
+		$scope.$watch('product.image', function () {
+			$scope.upload($scope.image);
+		});
+
+		$scope.upload = function (image) {
+			if (image && image.length) {
+				Upload.upload({
+					url: '',
+					fields: {
+						'product': $scope.product.name
+					},
+					file: image
+				}).progress(function(e){
+
+				})
+			}
+		}
+
 	}
 ]);

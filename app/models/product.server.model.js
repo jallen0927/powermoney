@@ -13,20 +13,20 @@ var ProductSchema = new Schema({
 		required: 'Title cannot be blank',
 		trim: true
 	},
-	spec: {
+	desc: {
 		type: String,
 		default: '',
 		trim: true
 	},
-	category: {
-		type: Schema.ObjectId,
-		ref: 'Category',
-		default: null
-	},
+	//category: {
+	//	type: Schema.ObjectId,
+	//	ref: 'Category',
+	//	default: null
+	//},
 	image: {
-		type: Schema.ObjectId,
-		ref: 'Image',
-		default: null
+		type: String,
+		default: null,
+		trim: true
 	}
 });
 
