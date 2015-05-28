@@ -5,6 +5,11 @@ angular.module('blogs').controller('BlogsController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Blogs) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		// Create new Blog
 		$scope.create = function() {
 			// Create new Blog object

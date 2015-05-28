@@ -5,6 +5,11 @@ angular.module('plans').controller('PlansController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Plans) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		// Create new Plan
 		$scope.create = function() {
 			// Create new Plan object

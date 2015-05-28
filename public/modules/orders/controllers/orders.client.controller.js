@@ -5,6 +5,11 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 	function($scope, $stateParams, $location, Authentication, Orders, Plans, Gplans) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		$scope.init = function() {
 			var routeParams = $location.search();
 			$scope.order = {};

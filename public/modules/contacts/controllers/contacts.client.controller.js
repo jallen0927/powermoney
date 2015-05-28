@@ -5,6 +5,11 @@ angular.module('contacts').controller('ContactsController', ['$scope', '$statePa
 	function($scope, $stateParams, $location, Authentication, Contacts) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		// Create new Contact
 		$scope.create = function() {
 			// Create new Contact object

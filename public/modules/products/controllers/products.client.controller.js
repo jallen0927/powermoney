@@ -5,6 +5,11 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 	function($scope, $stateParams, $location, Authentication, Products, Upload) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		// Create new Product
 		$scope.create = function() {
 			// Create new Product object
@@ -80,9 +85,9 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 					file: image
 				}).progress(function(e){
 
-				})
+				});
 			}
-		}
+		};
 
 	}
 ]);

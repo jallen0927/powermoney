@@ -1,4 +1,4 @@
-<section class="" data-ng-controller="GplansController" data-ng-init="findOne()">
+<section class="" data-ng-controller="GplansController" data-ng-init="pageAuth();findOne()">
 	<h3 class="col-md-offset-2 col-md-8 text-center">Edit Gplan for {{gplan.company}}</h3>
 	<div class="block-area col-md-offset-2 col-md-8">
 		<form name="gplanForm" data-ng-submit="update(gplanForm.$valid)" class="add-gplan form-horizontal" novalidate autocomplete="on">

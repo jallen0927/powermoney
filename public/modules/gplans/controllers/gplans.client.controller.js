@@ -5,6 +5,11 @@ angular.module('gplans').controller('GplansController', ['$scope', '$stateParams
 	function($scope, $stateParams, $location, Authentication, Gplans) {
 		$scope.authentication = Authentication;
 
+		$scope.pageAuth = function () {
+			$scope.user = Authentication.user;
+			if(!$scope.user) $location.path('/');
+		};
+
 		// Create new Gplan
 		$scope.create = function() {
 			// Create new Gplan object
