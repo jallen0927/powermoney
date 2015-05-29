@@ -17,8 +17,9 @@ module.exports = function(app) {
 		.put(users.requiresLogin, products.update)
 		.delete(users.requiresLogin, products.delete);
 
-	app.route('/galleries')
+	app.route('/galleries/:name')
 		.get(products.galleries);
+	
 	// Finish by binding the product middleware
 	app.param('productId', products.productByID);
 };

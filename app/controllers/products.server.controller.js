@@ -3,11 +3,11 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
+var fs = require('fs'),
+	mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Product = mongoose.model('Product'),
-	_ = require('lodash'),
-	fs = require('fs');
+	_ = require('lodash');
 
 /**
  * Create a product
@@ -121,8 +121,12 @@ exports.hasAuthorization = function(req, res, next) {
 	next();
 };
 
+/**
+ * Get all galleries
+ */
 exports.galleries = function(req, res) {
-	fs.readdir('public/modules/products/galleries', function(err, files){
+	var name = req.params.name;
+	fs.readdir('public/modules/products/galleries/' + name, function(err, files){
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

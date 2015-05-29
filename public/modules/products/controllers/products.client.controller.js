@@ -72,10 +72,21 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 
 		// Find all gallery images
 		$scope.findGalleryImages = function() {
-			$http.get('/galleries').success(function(galleries){
-				console.log(galleries);
-				$scope.galleries = galleries;
-			});
+			var galleries = [
+				{'name': 'gallery1'},
+				{'name': 'gallery2'}
+			];
+
+			for (var i=0; i<galleries.length; i++) {
+				(function(galleries, i) {
+					$http.get('/galleries/' + galleries[i].name).success(function(images){
+						galleries[i].images = images;
+						$scope.galleries = galleries;
+					}).error(function(response) {
+						$scope.error = response.message;
+					});
+				})(galleries, i);
+			}
 		};
 
 
