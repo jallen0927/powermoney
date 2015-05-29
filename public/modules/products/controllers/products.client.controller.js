@@ -1,8 +1,8 @@
 'use strict';
 
 // Products controller
-angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products', 'Upload',
-	function($scope, $stateParams, $location, Authentication, Products, Upload) {
+angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Products', 'Upload',
+	function($scope, $stateParams, $location, $http, Authentication, Products, Upload) {
 		$scope.authentication = Authentication;
 
 		$scope.pageAuth = function () {
@@ -69,6 +69,15 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 				productId: $stateParams.productId
 			});
 		};
+
+		// Find all gallery images
+		$scope.findGalleryImages = function() {
+			$http.get('/galleries').success(function(galleries){
+				console.log(galleries);
+				$scope.galleries = galleries;
+			});
+		};
+
 
 		//Handle image upload
 		$scope.$watch('product.image', function () {

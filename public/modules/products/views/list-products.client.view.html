@@ -1,14 +1,27 @@
-<section data-ng-controller="ProductsController" data-ng-init="find()" class="col-sm-offset-1 col-sm-10">
+<section data-ng-controller="ProductsController" data-ng-init="findGalleryImages()" class="col-sm-offset-1 col-sm-10 block-area">
 	<div class="page-header">
-		<h1>Products</h1>
+		<h4>Our Products</h4>
 	</div>
-	<div class="list-group">
-		<a data-ng-repeat="product in products" data-ng-href="#!/products/{{product._id}}" class="list-group-item">
-			<h4 class="list-group-item-heading" data-ng-bind="product.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="product.content"></p>
-		</a>
+	<div class="col-sm-6 block-area">
+		<div class="col-sm-12">
+
+		</div>
+		<div class="col-sm-12">
+			<p class="col-sm-12">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus, ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
+				Phasellus at tortor sollicitudin, pretium nisi sed, suscipit neque. Quisque euismod semper risus. Morbi ac nisl congue dui facilisis viverra. Mauris sit amet turpis urna. Nulla ornare fringilla elit, nec pharetra sapien ullamcorper ut. Maecenas placerat vehicula aliquet. In sit amet tortor ac quam porta tempor mollis ac est.
+			</p>
+		</div>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="products.$resolved && !products.length"  data-ng-show="authentication.user">
-		No products yet, why don't you <a href="/#!/products/create">create one</a>?
+	<div class="col-sm-6 block-area">
+		<div class="col-sm-12">
+
+		</div>
+		<div class="col-sm-12">
+			<p class="col-sm-12">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus, ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
+				Phasellus at tortor sollicitudin, pretium nisi sed, suscipit neque. Quisque euismod semper risus. Morbi ac nisl congue dui facilisis viverra. Mauris sit amet turpis urna. Nulla ornare fringilla elit, nec pharetra sapien ullamcorper ut. Maecenas placerat vehicula aliquet. In sit amet tortor ac quam porta tempor mollis ac est.
+			</p>
+		</div>
 	</div>
 </section>
