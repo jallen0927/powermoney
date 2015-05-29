@@ -1,7 +1,7 @@
 <section data-ng-controller="OrdersController" data-ng-init="pageAuth();findOne()">
-	<div class="col-md-offset-3 col-md-6">
+	<div class="col-md-offset-3 col-md-6 block-area">
 		<div class="page-header">
-			<h3>From {{order.name}}</h3>
+			<h4>From {{order.firstName}} {{order.lastName}}</h4>
 		</div>
 		<ul class="list-group">
 			<li  class="list-group-item">
@@ -116,7 +116,7 @@
 
 
 		</ul>
-		<div class="text-center">
+		<div class="text-center bottom-action">
 			<a class="btn btn-info" data-ng-href="#!/orders" title="View">Back</a>
 			<!--
         <a class="btn btn-primary" href="/#!/orders/{{order._id}}/edit" title="Replied">Replied</a>

@@ -1,7 +1,7 @@
-<section class="" data-ng-controller="PlansController" data-ng-init="pageAuth();findOne()">
-	<h3 class="text-center col-md-offset-2 col-md-8">Edit Plan for {{plan.company}}</h3>
-	<div class="block-area col-md-offset-2 col-md-8">
-		<form name="planForm" data-ng-submit="update(planForm.$valid)" class="add-plan form-horizontal" novalidate autocomplete="on">
+<section class="block-area col-sm-offset-2 col-sm-8" data-ng-controller="PlansController" data-ng-init="pageAuth();findOne()">
+	<h3 class="text-center col-sm-12 page-header">Edit Plan for {{plan.company}}</h3>
+	<div class="block-area col-sm-12">
+		<form name="planForm" data-ng-submit="update(planForm.$valid)" class="add-plan form-horizontal col-sm-10 col-sm-offset-1" novalidate autocomplete="on">
 			<fieldset>
 				<div class="form-group">
 					<label for="company">Company Name</label>

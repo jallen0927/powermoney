@@ -1,4 +1,4 @@
-<section data-ng-controller="BlogsController" data-ng-init="pageAuth();findOne()">
+<section class="block-area col-sm-offset-2 col-sm-8" data-ng-controller="BlogsController" data-ng-init="pageAuth();findOne()">
 	<div class="page-header">
 		<h4>Edit Blog</h4>
 	</div>
@@ -23,7 +23,7 @@
 						<p ng-show="blogForm.content.$error.required" class="text-danger">Content is required</p>
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group text-center">
 					<input type="submit" value="Update" class="btn btn-primary">
 					<a data-ng-href="/#!/blogs" class="btn btn-danger">Cancel</a>
 				</div>

@@ -1,9 +1,7 @@
-<section data-ng-controller="OrdersController" data-ng-init="init()">
-	<div data-ng-hide="success" class="page-header text-center col-md-6 col-md-offset-3">
-		<h3>Create your order</h3>
-	</div>
-	<div class="block-area col-md-6 col-md-offset-3">
-		<form name="orderForm" class="form-horizontal" data-ng-submit="create()" novalidate autocomplete="on" data-ng-hide="success">
+<section class="block-area col-sm-offset-2 col-sm-8" data-ng-controller="OrdersController" data-ng-init="init()">
+	<h3 data-ng-hide="success" class="text-center col-sm-12 page-header">Create your order</h3>
+	<div class="block-area col-sm-12">
+		<form name="orderForm" class="form-horizontal col-sm-10 col-sm-offset-1" data-ng-submit="create()" novalidate autocomplete="on" data-ng-hide="success">
 			<input type="hidden" data-ng-model="order.planType">
 			<input type="hidden" data-ng-model="order.planId">
 			<fieldset>
@@ -175,6 +173,6 @@
 				</div>
 			</fieldset>
 		</form>
-		<h3 data-ng-show="success" class="text-success">Thanks for sign up, we will process it soon</h3>
 	</div>
+	<h3 data-ng-show="success" class="text-success text-center">Thanks for sign up, we will process it soon</h3>
 </section>

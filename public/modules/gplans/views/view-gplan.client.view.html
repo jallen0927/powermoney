@@ -1,7 +1,7 @@
 <section data-ng-controller="GplansController" data-ng-init="pageAuth();findOne()">
-	<div class="col-md-offset-3 col-md-6">
+	<div class="col-md-offset-3 col-md-6 block-area">
 		<div class="page-header">
-			<h1 data-ng-bind="gplan.company"></h1>
+			<h4 data-ng-bind="gplan.company"></h4>
 		</div>
 		<ul class="list-group">
 			<li  class="list-group-item"><span class="badge" data-ng-bind="gplan.company"></span>Company Name</li>
@@ -11,7 +11,7 @@
 			<li  class="list-group-item"><span class="badge" data-ng-bind="gplan.gst"></span>GST</li>
 			<li  class="list-group-item"><span class="badge" data-ng-bind="gplan.ppd"></span>Prompt Payment Discount</li>
 		</ul>
-		<div class="text-center">
+		<div class="text-center bottom-action">
 			<a class="btn btn-info" data-ng-href="#!/gplans" title="View">Back</a>
 			<a class="btn btn-primary" href="/#!/gplans/{{gplan._id}}/edit" title="Edit">Edit</a>
 		</div>
