@@ -1,27 +1,39 @@
-<section data-ng-controller="ProductsController" data-ng-init="findGalleryImages()" class="col-sm-offset-1 col-sm-10 block-area">
+<section data-ng-controller="ProductsController" data-ng-init="findGalleryImages()"
+		 class="col-sm-offset-1 col-sm-10 block-area">
 	<div class="page-header">
 		<h4>Our Products</h4>
 	</div>
-	<div class="col-sm-6 block-area">
-		<div class="col-sm-12">
-			<h4 data-ng-bind="galleries[0].name"></h4>
-
+	<div class="col-sm-12 bottom-action">
+		<div class="col-sm-6">
+			<div class="col-sm-12">
+				<h4 data-ng-bind="galleries[0].name"></h4>
+				<a data-ng-repeat="image in galleries[0].images" href="{{image}}" class="fancybox col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
+					<img src="{{image}}" class="col-sm-12">
+				</a>
+			</div>
+			<div class="col-sm-12">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus,
+					ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non
+					suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
+				</p>
+			</div>
 		</div>
-		<div class="col-sm-12">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus, ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
-			</p>
+		<div class="col-sm-6">
+			<div class="col-sm-12">
+				<h4 data-ng-bind="galleries[1].name"></h4>
+				<a data-ng-repeat="image in galleries[1].images" href="{{image}}" class="fancybox col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
+					<img src="{{image}}" class="col-sm-12">
+				</a>
+			</div>
+			<div class="col-sm-12">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus,
+					ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non
+					suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
+				</p>
+			</div>
 		</div>
 	</div>
-	<div class="col-sm-6 block-area">
-		<div class="col-sm-12">
-			<h4 data-ng-bind="galleries[1].name"></h4>
 
-		</div>
-		<div class="col-sm-12">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non lacus magna. Maecenas elit risus, ornare a interdum at, maximus vel diam. Nunc vel dolor leo. Suspendisse tincidunt lectus diam, non suscipit tellus vestibulum et. Etiam hendrerit quam eu ligula porta, eu tempor ipsum vestibulum.
-			</p>
-		</div>
-	</div>
 </section>

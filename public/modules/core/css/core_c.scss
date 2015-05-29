@@ -107,4 +107,12 @@ footer {
 	background-color: #515151;
 }
 
+.gallery-thumb {
+	display: none;
+	&:first-of-type {
+		display: block;
+		padding: 30px;
+	}
+}
+
 

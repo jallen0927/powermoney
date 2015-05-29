@@ -125,14 +125,20 @@ exports.hasAuthorization = function(req, res, next) {
  * Get all galleries
  */
 exports.galleries = function(req, res) {
-	var name = req.params.name;
-	fs.readdir('public/modules/products/galleries/' + name, function(err, files){
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.json(files);
-		}
-	});
+	var name = req.params.name,
+		path = 'public/modules/products/galleries/' + name;
+	(function(path){
+		fs.readdir(path, function(err, files){
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				for(var i=0; i<files.length; i++) {
+					files[i] = path.substring(7) + '/' + files[i];
+				}
+				res.json(files);
+			}
+		});
+	})(path);
 };

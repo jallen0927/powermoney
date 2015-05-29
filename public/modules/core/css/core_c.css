@@ -74,4 +74,10 @@ footer {
   width: 100%;
   background-color: #515151; }
 
+.gallery-thumb {
+  display: none; }
+  .gallery-thumb:first-of-type {
+    display: block;
+    padding: 30px; }
+
 /*# sourceMappingURL=core_c.css.map */

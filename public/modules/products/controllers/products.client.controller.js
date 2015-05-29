@@ -111,3 +111,7 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 
 	}
 ]);
+
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
