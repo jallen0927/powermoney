@@ -156,6 +156,8 @@ form {
 //for animation
 
 $duration: 1s;
+$deg: 45deg;
+$transform: rotateX(-$deg) rotateY($deg) scale(2, 2);
 
 //.view-container {
 //	position: relative;
@@ -188,9 +190,22 @@ $duration: 1s;
 @keyframes fade-in {
 	from {
 		opacity: 0;
+		-webkit-transform: $transform;
+		-moz-transform: $transform;
+		-ms-transform: $transform;
+		-o-transform: $transform;
+		transform: $transform;
+
+		-webkit-transform-origin: 30% top 0;
+		-moz-transform-origin: 30% top 0;
+		-ms-transform-origin: 30% top 0;
+		-o-transform-origin: 30% top 0;
+		transform-origin: 30% top 0;
+
 	}
 	to {
 		opacity: 1;
+		transform: none;
 	}
 }
 @-moz-keyframes fade-in {
