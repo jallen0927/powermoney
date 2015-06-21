@@ -7,8 +7,8 @@
 		<div class="col-sm-6 col-xs-12">
 			<div class="col-sm-12 col-xs-12">
 				<h4 class="text-center" data-ng-bind="galleries[0].name"></h4>
-				<a data-ng-repeat="image in galleries[0].images" href="{{image}}" class="fancybox col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
-					<img src="{{image}}" class="col-sm-12 col-xs-12">
+				<a data-ng-repeat="image in galleries[0].images" data-ng-href="{{image}}" class="fancybox col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
+					<img data-ng-src="{{image}}" class="col-sm-12 col-xs-12">
 				</a>
 			</div>
 			<div class="col-sm-12 col-xs-12">
@@ -22,8 +22,8 @@
 		<div class="col-sm-6 col-xs-12">
 			<div class="col-sm-12 col-xs-12">
 				<h4 class="text-center" data-ng-bind="galleries[1].name"></h4>
-				<a data-ng-repeat="image in galleries[1].images" href="{{image}}" class="fancybox col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
-					<img src="{{image}}" class="col-sm-12 col-xs-12">
+				<a data-ng-repeat="image in galleries[1].images" data-ng-href="{{image}}" class="fancybox col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 gallery-thumb" rel="group">
+					<img data-ng-src="{{image}}" class="col-sm-12 col-xs-12">
 				</a>
 			</div>
 			<div class="col-sm-12 col-xs-12">
