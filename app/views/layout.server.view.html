@@ -54,8 +54,8 @@
 
 <body class="ng-cloak">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-	<div id="content" class="overflow-container">
-		<div id="main-content">
+	<div id="content" class="overflow-container body-content">
+		<div id="main-content" class="main-content" data-ng-view>
 			{% block content %}{% endblock %}
 		</div>
 	</div>

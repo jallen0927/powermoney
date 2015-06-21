@@ -32,7 +32,7 @@ body {
 		text-transform: capitalize;
 	}
 
-	#content {
+	.body-content {
 		padding-top: 50px;
 		padding-bottom: 50px;
 	}
@@ -73,7 +73,7 @@ body {
 		padding: 10px;
 	}
 
-	#main-content {
+	.main-content {
 		padding-top: 70px;
 		height: 100%;
 		overflow: auto;
@@ -151,4 +151,64 @@ form {
 .padding-top {
 	padding-top: 30px;
 }
+
+
+//for animation
+
+$duration: 1s;
+
+//.view-container {
+//	position: relative;
+//}
+
+.view-frame.ng-enter, .view-frame.ng-leave {
+	//background: white;
+	//position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.view-frame.ng-enter {
+	-webkit-animation: $duration fade-in;
+	-moz-animation: $duration fade-in;
+	-o-animation: $duration fade-in;
+	animation: $duration fade-in;
+	z-index: 100;
+}
+
+.view-frame.ng-leave {
+	-webkit-animation: $duration fade-out;
+	-moz-animation: $duration fade-out;
+	-o-animation: $duration fade-out;
+	animation: $duration fade-out;
+	z-index:99;
+}
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@-webkit-keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+@-moz-keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
 

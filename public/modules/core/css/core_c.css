@@ -25,7 +25,7 @@ body {
   color: #888; }
   body h1 {
     text-transform: capitalize; }
-  body #content {
+  body .body-content {
     padding-top: 50px;
     padding-bottom: 50px; }
   body .block-area {
@@ -52,11 +52,11 @@ body {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     padding: 10px; }
-  body #main-content {
+  body .main-content {
     padding-top: 70px;
     height: 100%;
     overflow: auto; }
-    body #main-content section {
+    body .main-content section {
       display: block;
       overflow: auto; }
   body .about-img {
@@ -104,5 +104,55 @@ form {
 
 .padding-top {
   padding-top: 30px; }
+
+.view-frame.ng-enter, .view-frame.ng-leave {
+  top: 0;
+  left: 0;
+  right: 0; }
+
+.view-frame.ng-enter {
+  -webkit-animation: 1s fade-in;
+  -moz-animation: 1s fade-in;
+  -o-animation: 1s fade-in;
+  animation: 1s fade-in;
+  z-index: 100; }
+
+.view-frame.ng-leave {
+  -webkit-animation: 1s fade-out;
+  -moz-animation: 1s fade-out;
+  -o-animation: 1s fade-out;
+  animation: 1s fade-out;
+  z-index: 99; }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-moz-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 
 /*# sourceMappingURL=core_c.css.map */
