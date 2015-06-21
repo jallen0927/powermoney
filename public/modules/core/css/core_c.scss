@@ -107,8 +107,12 @@ header {
 		}
 	}
 
-	.nav:not(.dropdown-menu) li {
+	.nav li {
 		background-color: #323232;
+	}
+
+	ul.dropdown-menu li {
+		background-color: #ffffff;
 	}
 
 	.navbar-nav {

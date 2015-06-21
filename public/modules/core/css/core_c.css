@@ -73,8 +73,10 @@ header a.navbar-brand {
   width: 250px; }
   header a.navbar-brand img {
     display: block; }
-header .nav:not(.dropdown-menu) li {
+header .nav li {
   background-color: #323232; }
+header ul.dropdown-menu li {
+  background-color: #ffffff; }
 header .navbar-nav {
   margin: 0px -15px; }
 
