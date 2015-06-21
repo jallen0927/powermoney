@@ -107,7 +107,7 @@ header {
 		}
 	}
 
-	.nav li:not(.dropdown-menu li) {
+	.nav:not(.dropdown-menu) li {
 		background-color: #323232;
 	}
 
