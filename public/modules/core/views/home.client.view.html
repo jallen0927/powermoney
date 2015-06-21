@@ -6,7 +6,7 @@
 			<form name="entryForm" data-ng-submit="comparePlan()" class="form-horizontal text-center" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
-						<label for="address">Address</label>
+						<label for="address">Address (Auckland region only)</label>
 						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="Your home address" data-ng-change="resetError()">
 					</div>
 					<div class="form-group">
@@ -19,7 +19,7 @@
 							Gas with Power?
 						</label>
 					</div>
-					<div class="form-group" data-ng-show="entry.wgas">
+					<div class="form-group toggleable" data-ng-show="entry.wgas">
 						<label for="gasamount">Gas Monthly Consumption</label>
 						<input  data-ng-disabled="!entry.wgas" type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="Your average monthly gas consumption">
 					</div>

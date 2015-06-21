@@ -24,6 +24,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.comparePlan = function() {
+			$scope.error = null;
 			var area = $scope.getArea();
 
 			if(area == false) {
@@ -69,8 +70,14 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		};
 
 		$scope.getArea = function () {
-			if(!($scope.entry.googlePlace.address_components[3] !== 'undefined' && $scope.entry.googlePlace.address_components[3].long_name === 'Auckland')) {
-				$scope.error = 'Sorry, only address in Auckland region is allowed.';
+
+			if($scope.entry.googlePlace === undefined) {
+				$scope.error = 'Sorry, wrong address format, please select the address from drop-down list';
+				return false;
+			}
+
+			if(!($scope.entry.googlePlace.address_components[3] !== undefined && $scope.entry.googlePlace.address_components[3].long_name === 'Auckland')) {
+				$scope.error = 'Sorry, only address in Auckland region is supported currently.';
 				return false;
 			}
 

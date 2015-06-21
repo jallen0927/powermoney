@@ -122,11 +122,11 @@ form {
 @keyframes fade-in {
   from {
     opacity: 0;
-    -webkit-transform: rotateX(-45deg) rotateY(45deg) scale(2, 2);
-    -moz-transform: rotateX(-45deg) rotateY(45deg) scale(2, 2);
-    -ms-transform: rotateX(-45deg) rotateY(45deg) scale(2, 2);
-    -o-transform: rotateX(-45deg) rotateY(45deg) scale(2, 2);
-    transform: rotateX(-45deg) rotateY(45deg) scale(2, 2);
+    -webkit-transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
+    -moz-transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
+    -ms-transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
+    -o-transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
+    transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
     -webkit-transform-origin: 30% top 0;
     -moz-transform-origin: 30% top 0;
     -ms-transform-origin: 30% top 0;
@@ -166,5 +166,45 @@ form {
   to {
     opacity: 0;
     height: 0px; } }
+.toggleable {
+  -webkit-animation: 0.5s toggle-show;
+  -o-animation: 0.5s toggle-show;
+  animation: 0.5s toggle-show; }
+
+.toggleable.ng-hide {
+  -webkit-animation: 0.5s toggle-hide;
+  -o-animation: 0.5s toggle-hide;
+  animation: 0.5s toggle-hide; }
+
+@keyframes toggle-show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes toggle-show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-webkit-keyframes toggle-show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes toggle-hide {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-moz-keyframes toggle-hide {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-webkit-keyframes toggle-hide {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 
 /*# sourceMappingURL=core_c.css.map */

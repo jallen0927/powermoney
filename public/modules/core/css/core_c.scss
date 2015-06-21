@@ -156,8 +156,7 @@ form {
 //for animation
 
 $duration: 1s;
-$deg: 45deg;
-$transform: rotateX(-$deg) rotateY($deg) scale(2, 2);
+$transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
 
 //.view-container {
 //	position: relative;
@@ -257,3 +256,66 @@ $transform: rotateX(-$deg) rotateY($deg) scale(2, 2);
 }
 
 
+.toggleable {
+	-webkit-animation: 0.5s toggle-show;
+	-o-animation: 0.5s toggle-show;
+	animation: 0.5s toggle-show;
+}
+
+.toggleable.ng-hide {
+	-webkit-animation: 0.5s toggle-hide;
+	-o-animation: 0.5s toggle-hide;
+	animation: 0.5s toggle-hide;
+}
+
+@keyframes toggle-show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-moz-keyframes toggle-show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes toggle-show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes toggle-hide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@-moz-keyframes toggle-hide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes toggle-hide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
