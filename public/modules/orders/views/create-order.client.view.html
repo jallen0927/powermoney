@@ -5,14 +5,18 @@
 			<input type="hidden" data-ng-model="order.planType">
 			<input type="hidden" data-ng-model="order.planId">
 			<fieldset>
+				<div class="form-group">
+					<h4>Your Details</h4>
+				</div>
 				<div class="form-group" ng-class="{ 'has-error': orderForm.title.$dirty && orderForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
 					<select class="form-control" id="title" data-ng-model="order.title" required>
-						<option>Mr</option>
-						<option>Miss</option>
 						<option>Mrs</option>
-						<option>Ms</option>
+						<option>Miss</option>
+						<option>Mr</option>
 						<option>Dr</option>
+						<option>Ms</option>
+						<option>Rev</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -28,9 +32,34 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<label class="control-label" for="phone">Phone</label>
+					<div class="controls">
+						<input name="phone" data-ng-model="order.phone" id="phone" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<input type="email" name="email" data-ng-model="order.email" id="email" class="form-control">
+					</div>
+				</div>
+				<p>For credit check purposes, please provide us with your NZ driver licence number and card version number, if possible.</p>
+				<div class="form-group">
+					<label class="control-label" for="license">License</label>
+					<div class="controls">
+						<input name="license" data-ng-model="order.license" id="license" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="version">Version</label>
+					<div class="controls">
+						<input name="version" data-ng-model="order.version" id="version" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
 					<label class="control-label" for="dateOfBirth">Date of Birth</label>
 					<div class="controls input-group">
-							<input type="text" name="dateOfBirth" data-ng-model="order.dateOfBirth" id="dateOfBirth" class="form-control" datepicker-popup="{{format}}" is-open="dateOfBirth_opened" required />
+							<input ng-click="dateOfBirth_open($event)" type="text" name="dateOfBirth" data-ng-model="order.dateOfBirth" id="dateOfBirth" class="form-control" datepicker-popup="{{format}}" is-open="dateOfBirth_opened" required />
 							<span class="input-group-btn">
 								<button type="button" class="btn btn-default" ng-click="dateOfBirth_open($event)">
 									<i class="glyphicon glyphicon-calendar"></i>
@@ -38,24 +67,15 @@
 							</span>
 					</div>
 				</div>
+			</fieldset>
+
+			<fieldset>
 				<div class="form-group">
-					<label class="control-label" for="driver5a">Driver License 5A</label>
-					<div class="controls">
-						<input name="driver5a" data-ng-model="order.driver5a" id="driver5a" class="form-control">
-					</div>
+					<h4>Property Details</h4>
 				</div>
-				<div class="form-group">
-					<label class="control-label" for="driver5b">Driver License 5B</label>
-					<div class="controls">
-						<input name="driver5b" data-ng-model="order.driver5b" id="driver5b" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="mobile">Mobile Number</label>
-					<div class="controls">
-						<input name="mobile" data-ng-model="order.mobile" id="mobile" class="form-control">
-					</div>
-				</div>
+
+
+
 				<div class="form-group">
 					<label class="control-label" for="homeNumber">Home Number</label>
 					<div class="controls">
@@ -69,12 +89,6 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="email">Email</label>
-					<div class="controls">
-						<input type="email" name="email" data-ng-model="order.email" id="email" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="control-label" for="jointName">If you have joint account, please provide the name of the holder</label>
 					<div class="controls">
 						<input name="jointName" data-ng-model="order.jointName" id="jointName" class="form-control">
@@ -83,7 +97,7 @@
 				<div class="form-group">
 					<label class="control-label" for="jointDob">Date of birth for the holder of joint account</label>
 					<div class="controls input-group">
-						<input name="jointDob" data-ng-model="order.jointDob" id="jointDob" class="form-control" datepicker-popup="{{format}}" is-open="jointDob_opened">
+						<input ng-click="jointDob_open($event)" name="jointDob" data-ng-model="order.jointDob" id="jointDob" class="form-control" datepicker-popup="{{format}}" is-open="jointDob_opened">
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default" ng-click="jointDob_open($event)">
 								<i class="glyphicon glyphicon-calendar"></i>
