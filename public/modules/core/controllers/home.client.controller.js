@@ -26,6 +26,10 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 		$scope.comparePlan = function() {
 			var area = $scope.getArea();
 
+			if(area == false) {
+				return;
+			}
+
 			$http.get('/plans').success(function(plans){
 				var results = [];
 
@@ -79,6 +83,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 				area = 'south';
 			} else {
 				$scope.error = 'Sorry, We cannot recognise your area.';
+				console.log(suburb);
 				return false;
 			}
 
@@ -240,10 +245,10 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 				'Middlemore',
 				'Mission Bay',
 				'Morningside',
-				'Mount Albert',
-				'Mount Eden',
-				'Mount Roskill',
-				'Mount Wellington',
+				'Mt Albert',
+				'Mt Eden',
+				'Mt Roskill',
+				'Mt Wellington',
 				'New Windsor',
 				'Newmarket',
 				'Newton',
