@@ -47,7 +47,7 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
 				'public/lib/fontawesome/css/font-awesome.min.css',
 				'public/lib/fancybox/source/jquery.fancybox.css',
-				'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
+				'https://fonts.googleapis.com/css?family=Roboto:300,400,500'
 			],
 			js: [
 				'public/lib/jquery/dist/jquery.min.js',
