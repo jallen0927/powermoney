@@ -6,13 +6,19 @@
 		<tr>
 			<th>First Name</th>
 			<th>Last Name</th>
-			<th>Mobile Number</th>
+			<th>Phone</th>
+			<th>Plan Type</th>
+			<th>Plan Company</th>
+			<th>Plan name</th>
 			<th>Actions</th>
 		</tr>
 		<tr data-ng-repeat="order in orders">
 			<td data-ng-bind="order.firstName"></td>
 			<td data-ng-bind="order.lastName"></td>
-			<td data-ng-bind="order.mobile"></td>
+			<td data-ng-bind="order.phone"></td>
+			<td data-ng-bind="order.type"></td>
+			<td data-ng-bind="order.plan.company"></td>
+			<td data-ng-bind="order.plan.name"></td>
 			<td>
 				<a class="btn btn-primary btn-xs" data-ng-href="#!/orders/{{order._id}}" title="View">
 					<i class="fa fa-eye"></i>

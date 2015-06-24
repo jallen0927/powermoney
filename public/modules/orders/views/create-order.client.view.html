@@ -4,10 +4,10 @@
 		<form name="orderForm" class="form-horizontal col-sm-10 col-sm-offset-1" data-ng-submit="create()" novalidate autocomplete="on" data-ng-hide="success">
 			<input type="hidden" data-ng-model="order.planType">
 			<input type="hidden" data-ng-model="order.planId">
+			<div class="form-group">
+				<h4>Your Details</h4>
+			</div>
 			<fieldset>
-				<div class="form-group">
-					<h4>Your Details</h4>
-				</div>
 				<div class="form-group" ng-class="{ 'has-error': orderForm.title.$dirty && orderForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
 					<select class="form-control" id="title" data-ng-model="order.title" required>
@@ -69,120 +69,152 @@
 				</div>
 			</fieldset>
 
+			<div class="form-group">
+				<h4>Property Details</h4>
+			</div>
+
 			<fieldset>
 				<div class="form-group">
-					<h4>Property Details</h4>
+					<label class="control-label" for="address">Property</label>
+					<div class="controls">
+						<input name="address" data-ng-model="order.address" id="address" class="form-control" placeholder="Your property address">
+					</div>
 				</div>
+				<div class="form-group">
+					<label>Is this your primary address?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="primary" value="yes" data-ng-model="order.primary">
+							Yes
+						</label>
+						<label class="control-label">
+							<input type="radio" name="primary" value="no" data-ng-model="order.primary">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>What energy services do you require?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="services" value="electricity" data-ng-model="order.services">
+							Electricity
+						</label>
+						<label class="control-label">
+							<input type="radio" name="services" value="gas" data-ng-model="order.services">
+							Natural Gas
+						</label>
+						<label class="control-label">
+							<input type="radio" name="services" value="electricity and gas" data-ng-model="order.services">
+							Electricity and Gas
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>How many people live in your household?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="people" value="1" data-ng-model="order.people">
+							1
+						</label>
+						<label class="control-label">
+							<input type="radio" name="people" value="2" data-ng-model="order.people">
+							2
+						</label>
+						<label class="control-label">
+							<input type="radio" name="people" value="3" data-ng-model="order.people">
+							3
+						</label>
+						<label class="control-label">
+							<input type="radio" name="people" value="4 or more" data-ng-model="order.people">
+							4 or more
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>What is your situation?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="situation" value="moving" data-ng-model="order.situation">
+							I'm moving or need a new connection
+						</label>
+					</div>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="situation" value="switch" data-ng-model="order.situation">
+							I just want to switch energy providers
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Is there anything that could prevent a meter reader accessing your meter, such as any dogs on the property?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="prevent" value="Yes" data-ng-model="order.prevent">
+							Yes
+						</label>
+						<label class="control-label">
+							<input type="radio" name="prevent" value="No" data-ng-model="order.prevent">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Is anyone at this property reliant on mains electricity for critical medical support?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="medical" value="Yes" data-ng-model="order.medical">
+							Yes
+						</label>
+						<label class="control-label">
+							<input type="radio" name="medical" value="No" data-ng-model="order.medical">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Does disconnection of electricity present a clear threat to the health or wellbeing of anyone at this property for reasons of age, health or disability?</label>
+					<div class="radio">
+						<label class="control-label">
+							<input type="radio" name="threat" value="Yes" data-ng-model="order.threat">
+							Yes
+						</label>
+						<label class="control-label">
+							<input type="radio" name="threat" value="No" data-ng-model="order.threat">
+							No
+						</label>
+					</div>
+				</div>
+			</fieldset>
 
-
-
-				<div class="form-group">
-					<label class="control-label" for="homeNumber">Home Number</label>
-					<div class="controls">
-						<input name="homeNumber" data-ng-model="order.homeNumber" id="homeNumber" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="workNumber">Work Number</label>
-					<div class="controls">
-						<input name="workNumber" data-ng-model="order.workNumber" id="workNumber" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="jointName">If you have joint account, please provide the name of the holder</label>
-					<div class="controls">
-						<input name="jointName" data-ng-model="order.jointName" id="jointName" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="jointDob">Date of birth for the holder of joint account</label>
-					<div class="controls input-group">
-						<input ng-click="jointDob_open($event)" name="jointDob" data-ng-model="order.jointDob" id="jointDob" class="form-control" datepicker-popup="{{format}}" is-open="jointDob_opened">
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="jointDob_open($event)">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="altName">If there is alternative contact, please provide his/her name</label>
-					<div class="controls">
-						<input name="altName" data-ng-model="order.altName" id="altName" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="altPhone">Phone number for alternative contact</label>
-					<div class="controls">
-						<input name="altPhone" data-ng-model="order.altPhone" id="altPhone" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="authPerson">If there is authority person, please provide his/her name</label>
-					<div class="controls">
-						<input name="authPerson" data-ng-model="order.authPerson" id="authPerson" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="currentCompany">Current power & gas company</label>
-					<div class="controls">
-						<input name="currentCompany" data-ng-model="order.currentCompany" id="currentCompany" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="medical">If the premise has a vulnerable person or medical equipment requires power to run?</label>
-					<div class="controls">
-						<select name="medical" data-ng-model="order.medical" id="medical" class="form-control">
-							<option>Yes</option>
-							<option>No</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="electrMeter">Location of the electricity meter</label>
-					<div class="controls">
-						<input name="electrMeter" data-ng-model="order.electrMeter" id="electrMeter" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="gasMeter">Location of the gas meter</label>
-					<div class="controls">
-						<input name="gasMeter" data-ng-model="order.gasMeter" id="gasMeter" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="lpgBottles">Location of the LPG bottles</label>
-					<div class="controls">
-						<input name="lpgBottles" data-ng-model="order.lpgBottles" id="lpgBottles" class="form-control">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="hazards">If the premise has a dog or any potential hazards?</label>
-					<div class="controls">
-						<select name="hazards" data-ng-model="order.hazards" id="hazards" class="form-control">
-							<option>Yes</option>
-							<option>No</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="payment">Preferred payment option</label>
-					<div class="controls">
-						<select name="payment" data-ng-model="order.payment" id="payment" class="form-control">
-							<option>Direct Debit</option>
-							<option>Manual Online Payment</option>
-							<option>Credit Card</option>
-							<option>PostShop</option>
-							<option>FreePost</option>
-							<option>Phone Banking</option>
-							<option>SmoothPay</option>
-						</select>
-					</div>
-				</div>
+			<div class="form-group">
+				<h4>Billing Details</h4>
+			</div>
+			<fieldset>
+                <div class="form-group">
+                    <label>Is your billing address the same as your supply address?</label>
+                    <div class="radio">
+                        <label class="control-label">
+                            <input type="radio" name="billing-same" value="Yes" data-ng-model="order.billingSame">
+                            Yes
+                        </label>
+                        <label class="control-label">
+                            <input type="radio" name="billing-same" value="No" data-ng-model="order.billingSame">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" data-ng-show="order.billingSame==='No'">
+                    <label class="control-label" for="billing">Billing address</label>
+                    <div class="controls">
+                        <input type="text" name="billing" data-ng-disabled="order.billingSame==='Yes'" data-ng-model="billing" id="billing" class="form-control">
+                    </div>
+                </div>
+			</fieldset>
 				<div class="form-group text-center">
 					<input type="submit" class="btn btn-primary" value="Submit">
 				</div>
-				<div data-ng-show="error" class="text-danger">
+				<div data-ng-show="error" class="text-danger text-center">
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>

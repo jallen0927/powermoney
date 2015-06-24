@@ -10,15 +10,15 @@
 			</li>
 			<li  class="list-group-item">
 				<h4 class="list-group-item-heading">Plan Company</h4>
-				<p class="list-group-item-text" data-ng-bind="plan.company"></p>
+				<p class="list-group-item-text" data-ng-bind="order.plan.company"></p>
 			</li>
 			<li  class="list-group-item">
 				<h4 class="list-group-item-heading">Plan Name</h4>
-				<p class="list-group-item-text" data-ng-bind="plan.name"></p>
+				<p class="list-group-item-text" data-ng-bind="order.plan.name"></p>
 			</li>
 			<li  class="list-group-item">
 				<h4 class="list-group-item-heading">Created</h4>
-				<p class="list-group-item-text" data-ng-bind="order.created"></p>
+				<p class="list-group-item-text">{{order.created | date:'yyyy-MM-dd HH:mm:ss'}}</p>
 			</li>
 			<li  class="list-group-item">
 				<h4 class="list-group-item-heading">Title</h4>
@@ -33,87 +33,65 @@
 				<p class="list-group-item-text" data-ng-bind="order.lastName"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Last Name</h4>
-				<p class="list-group-item-text" data-ng-bind="order.dateOfBirth"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Driver License 5A</h4>
-				<p class="list-group-item-text" data-ng-bind="order.driver5a"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Driver License 5B</h4>
-				<p class="list-group-item-text" data-ng-bind="order.driver5b"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Mobile Number</h4>
-				<p class="list-group-item-text" data-ng-bind="order.mobile"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Home Number</h4>
-				<p class="list-group-item-text" data-ng-bind="order.homeNumber"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Work Number</h4>
-				<p class="list-group-item-text" data-ng-bind="order.workNumber"></p>
+				<h4 class="list-group-item-heading">Phone</h4>
+				<p class="list-group-item-text" data-ng-bind="order.phone"></p>
 			</li>
 			<li  class="list-group-item">
 				<h4 class="list-group-item-heading">Email</h4>
 				<p class="list-group-item-text" data-ng-bind="order.email"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">If you have joint account, please provide the name of the holder</h4>
-				<p class="list-group-item-text" data-ng-bind="order.jointName"></p>
+				<h4 class="list-group-item-heading">License</h4>
+				<p class="list-group-item-text" data-ng-bind="order.license"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Date of birth for the holder of joint account</h4>
-				<p class="list-group-item-text" data-ng-bind="order.jointDob"></p>
+				<h4 class="list-group-item-heading">Version</h4>
+				<p class="list-group-item-text" data-ng-bind="order.version"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">If there is alternative contact, please provide his/her name</h4>
-				<p class="list-group-item-text" data-ng-bind="order.altName"></p>
+				<h4 class="list-group-item-heading">Date of Birth</h4>
+				<p class="list-group-item-text" >{{order.dateOfBirth | date: 'yyyy-MM-dd'}}</p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Phone number for alternative contact</h4>
-				<p class="list-group-item-text" data-ng-bind="order.altPhone"></p>
+				<h4 class="list-group-item-heading">Property</h4>
+				<p class="list-group-item-text" data-ng-bind="order.address"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">If there is authority person, please provide his/her name</h4>
-				<p class="list-group-item-text" data-ng-bind="order.authPerson"></p>
+				<h4 class="list-group-item-heading">Is this your primary address?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.primary"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Current power & gas company</h4>
-				<p class="list-group-item-text" data-ng-bind="order.currentCompany"></p>
+				<h4 class="list-group-item-heading">What energy services do you require?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.services"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">If the premise has a vulnerable person or medical equipment requires power to run?</h4>
+				<h4 class="list-group-item-heading">How many people live in your household?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.people"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">What is your situation?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.situation"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Is there anything that could prevent a meter reader accessing your meter, such as any dogs on the property?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.prevent"></p>
+			</li>
+			<li  class="list-group-item">
+				<h4 class="list-group-item-heading">Is anyone at this property reliant on mains electricity for critical medical support?</h4>
 				<p class="list-group-item-text" data-ng-bind="order.medical"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Location of the electricity meter</h4>
-				<p class="list-group-item-text" data-ng-bind="order.electrMeter"></p>
+				<h4 class="list-group-item-heading">Does disconnection of electricity present a clear threat to the health or wellbeing of anyone at this property for reasons of age, health or disability?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.threat"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Location of the gas meter</h4>
-				<p class="list-group-item-text" data-ng-bind="order.gasMeter"></p>
+				<h4 class="list-group-item-heading">Is your billing address the same as your supply address?</h4>
+				<p class="list-group-item-text" data-ng-bind="order.billingSame"></p>
 			</li>
 			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">ocation of the LPG bottles</h4>
-				<p class="list-group-item-text" data-ng-bind="order.lpgBottles"></p>
+				<h4 class="list-group-item-heading">Billing address</h4>
+				<p class="list-group-item-text" data-ng-bind="order.billingSame"></p>
 			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">If the premise has a dog or any potential hazards?</h4>
-				<p class="list-group-item-text" data-ng-bind="order.hazards"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Preferred payment option</h4>
-				<p class="list-group-item-text" data-ng-bind="order.payment"></p>
-			</li>
-			<li  class="list-group-item">
-				<h4 class="list-group-item-heading">Created</h4>
-				<p class="list-group-item-text" data-ng-bind="order.created"></p>
-			</li>
-
-
 
 		</ul>
 		<div class="text-center bottom-action">

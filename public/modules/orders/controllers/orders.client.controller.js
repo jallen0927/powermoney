@@ -66,28 +66,34 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 
 		// Find a list of Orders
 		$scope.find = function() {
-			$scope.orders = Orders.query();
+			$scope.orders = Orders.query({}, function(orders){
+                for (var i=0; i<orders.length; i++) {
+                    $scope.getOrderPlan(orders[i]);
+                }
+
+            });
 		};
 
 		// Find existing Order
 		$scope.findOne = function() {
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
-			}, function(od){
-				if (od.planType === 'plan') {
-					$scope.order.type = 'Power Plan';
-					$scope.plan = Plans.get({
-						planId: od.planId
-					});
-				}
-				if (od.planType === 'gplan') {
-					$scope.order.type = 'Gas Plan';
-					$scope.plan = Gplans.get({
-						planId: od.planId
-					});
-				}
-			});
+			}, $scope.getOrderPlan);
 
+		};
+
+		$scope.getOrderPlan = function (order) {
+			if(order.planType === 'plan') {
+				order.type = 'Power Plan';
+				order.plan = Plans.get({
+					planId: order.planId
+				});
+			} else if (order.planType === 'gplan') {
+				order.type = 'Gas Plan';
+				order.plan = Gplans.get({
+					planId: order.planId
+				});
+			}
 		};
 
 		// Datepicker

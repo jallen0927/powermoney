@@ -10,7 +10,7 @@ var OrderSchema = new Schema({
 	title: {
 		type: [{
 			type: String,
-			enum: ['Mr', 'Miss', 'Mrs', 'Ms', 'Dr']
+			enum: ['Mr', 'Miss', 'Mrs', 'Ms', 'Dr', 'Rev']
 		}],
 		default: ['Mr'],
 		trim: true,
@@ -20,117 +20,103 @@ var OrderSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true,
-		required: 'firstName cannot be blank'
+		required: 'First name cannot be blank'
 	},
 	lastName: {
 		type: String,
 		default: '',
 		trim: true,
-		required: 'LastName cannot be blank'
+		required: 'Last name cannot be blank'
 	},
-	dateOfBirth: {
-		type: Date,
-		default: Date.now(),
-		trim: true
-	},
-	driver5a: {
+	phone: {
 		type: String,
 		default: '',
-		trim: true
-	},
-	driver5b: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	mobile: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	homeNumber: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	workNumber: {
-		type: String,
-		default: '',
-		trim: true
+		trim: true,
+		required: 'Phone cannot be blank'
 	},
 	email: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Email cannot be blank'
 	},
-	jointName: {
+	license: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'License cannot be blank'
 	},
-	jointDob: {
+	version: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'License Version cannot be blank'
 	},
-	altName: {
+	dateOfBirth: {
+		type: Date,
+		default: Date.now(),
+		trim: true,
+		required: 'Data of Birth cannot be blank'
+	},
+	address: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Property address cannot be blank'
 	},
-	altPhone: {
+	primary: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Please fill all the fields'
 	},
-	authPerson: {
+	services: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Please fill all the fields'
 	},
-	currentCompany: {
+	people: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Please fill all the fields'
+	},
+	situation: {
+		type: String,
+		default: '',
+		trim: true,
+		required: 'Please fill all the fields'
+	},
+	prevent: {
+		type: String,
+		default: '',
+		trim: true,
+		required: 'Please fill all the fields'
 	},
 	medical: {
-		type: Boolean,
-		default: false,
-		trim: true
-	},
-	electrMeter: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Please fill all the fields'
 	},
-	gasMeter: {
+	threat: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Please fill all the fields'
 	},
-	lpgBottles: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	hazards: {
-		type: Boolean,
-		default: false,
-		trim: true
-	},
-	payment: {
-		type: [{
-			type: String,
-			enum: ['Direct Debit', 'Manual Online Payment', 'Credit Card', 'PostShop', 'FreePost', 'Phone Banking', 'SmoothPay']
-		}],
-		default: '',
-		trim: true
-	},
-	planType: {
-		type: String,
-		default: '',
-		trim: true
-	},
+    billingSame: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'Please fill all the fields'
+    },
+    planType: {
+        type: String,
+        default: '',
+        trim: true
+    },
 	planId: {
 		type: String,
 		default: '',
