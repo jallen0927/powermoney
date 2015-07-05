@@ -27,7 +27,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 			$scope.error = null;
 			var area = $scope.getArea();
 
-			if(area == false) {
+			if(area === false) {
 				return;
 			}
 

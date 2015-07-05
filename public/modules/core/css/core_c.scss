@@ -25,7 +25,7 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	font-family: 'Century Gothic';
+	font-family: 'Century Gothic', Sans-serif;
 	color: #888;
 
 	h1 {
@@ -38,6 +38,7 @@ body {
 	}
 
 	.block-area {
+		background-color: rgb(200, 200, 200);
 		background-color: rgba(255, 255, 255, 0.7);
 		//border-radius: 10px;
 		margin-bottom: 20px;
@@ -53,6 +54,7 @@ body {
 	}
 
 	small, .lead {
+		background-color: rgb(200, 200, 200);
 		background-color: rgba(255, 255, 255, 0.85);
 		border-radius: 10px;
 		padding: 10px;
@@ -68,6 +70,7 @@ body {
 
 
 	.page-header {
+		background-color: rgb(200, 200, 200);
 		background-color: rgba(255, 255, 255, 0.85);
 		border-radius: 10px;
 		padding: 10px;
@@ -128,7 +131,7 @@ header {
 	}
 
 	.navbar-nav {
-		margin: 0px -15px;
+		margin: 0 -15px;
 	}
 }
 
@@ -239,42 +242,44 @@ $transform: rotateX(-60deg) rotateY(30deg) scale(2, 2);
 @keyframes fade-out {
 	from {
 		opacity: 1;
-		height: 0px;
+		height: 0;
 	}
 	to {
 		opacity: 0;
-		height: 0px;
+		height: 0;
 	}
 }
 @-moz-keyframes fade-out {
 	from {
 		opacity: 1;
-		height: 0px;
+		height: 0;
 	}
 	to {
 		opacity: 0;
-		height: 0px;
+		height: 0;
 	}
 }
 @-webkit-keyframes fade-out {
 	from {
 		opacity: 1;
-		height: 0px;
+		height: 0;
 	}
 	to {
 		opacity: 0;
-		height: 0px;
+		height: 0;
 	}
 }
 
 
 .toggleable {
+    -moz-animation: 0.5s toggle-show;;
 	-webkit-animation: 0.5s toggle-show;
 	-o-animation: 0.5s toggle-show;
 	animation: 0.5s toggle-show;
 }
 
 .toggleable.ng-hide {
+    -moz-animation: 0.5s toggle-hide;;
 	-webkit-animation: 0.5s toggle-hide;
 	-o-animation: 0.5s toggle-hide;
 	animation: 0.5s toggle-hide;
