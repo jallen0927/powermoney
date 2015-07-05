@@ -3,7 +3,7 @@
 // Init the application configuration module for AngularJS application
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
-	var applicationModuleName = 'mean';
+	var applicationModuleName = 'powermoney';
 	var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ngRoute', 'ui.router', 'ui.bootstrap', 'ui.utils', 'ngFileUpload'];
 
 	// Add a new vertical module
