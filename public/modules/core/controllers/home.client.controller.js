@@ -10,6 +10,8 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 	function($scope, $http) {
 
 		$scope.init = function() {
+
+			// For Google place autocomplete
 			var autoComplete,
 				addressField = document.getElementById('address');
 			autoComplete = new google.maps.places.Autocomplete(
@@ -21,6 +23,7 @@ angular.module('core').controller('PubController', ['$scope', '$http',
 			google.maps.event.addListener(autoComplete, 'place_changed', function() {
 				$scope.entry.googlePlace = autoComplete.getPlace();
 			});
+
 		};
 
 		$scope.comparePlan = function() {

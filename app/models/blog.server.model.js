@@ -13,7 +13,17 @@ var BlogSchema = new Schema({
 		trim: true,
 		required: 'Title cannot be blank'
 	},
+	title_cn: {
+		type: String,
+		default: '',
+		trim: true,
+		required: '请输入标题'
+	},
 	content: {
+		type: String,
+		default: ''
+	},
+	content_cn: {
 		type: String,
 		default: ''
 	},
