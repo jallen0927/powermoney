@@ -1,41 +1,45 @@
-<section class="block-area col-md-6 col-md-offset-3" data-ng-controller="ContactsController">
-	<h3 class="text-center col-sm-12">Contact Us</h3>
-	<div class="col-sm-12">
-		<form name="contactForm" data-ng-submit="create()" class="form-horizontal" novalidate autocomplete="on" data-ng-hide="success">
-			<fieldset>
-				<div class="form-group">
-					<label for="name">Name<span style="color: red;">*</span></label>
-					<input type="text" required id="name" name="name" class="form-control" data-ng-model="contact.name" placeholder="Please input your name">
-				</div>
-				<div class="form-group">
-					<label for="email">Email<span style="color: red;">*</span></label>
-					<input type="text" required id="email" name="email" class="form-control" data-ng-model="contact.email" placeholder="Please input your email">
-				</div>
-				<div class="form-group">
-					<label for="phone">Phone Number</label>
-					<input type="text" id="phone" name="phone" class="form-control" data-ng-model="contact.phone" placeholder="Please input your phone number">
-				</div>
-				<div class="form-group">
-					<label for="subject">Subject</label>
-					<input type="text" id="subject" name="subject" class="form-control" data-ng-model="contact.subject" placeholder="">
-				</div>
-				<div class="form-group">
-					<label for="message">Message<span style="color: red;">*</span></span></label>
-					<textarea required id="message" name="message" class="form-control" data-ng-model="contact.message" rows="5"></textarea>
-				</div>
-				<div class="text-center form-group">
-					<button type="submit" class="btn btn-large btn-primary">Submit</button>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-			</fieldset>
-		</form>
-		<div data-ng-show="success">
-			<h3 class="text-success text-center">Thanks for contacting us, we will get touch with you soon.</h3>
-			<div class="text-center bottom-action">
-				<a class="btn btn-primary" data-ng-href="#!/home" title="View">Back</a>
-			</div>
-		</div>
+<section class="block-area col-md-10 col-md-offset-1 col-sm-12" data-ng-controller="ContactsController">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h4>Contact Us</h4>
+        </div>
+        <div class="block-area col-sm-12 col-xs-12 padding-top">
+            <form name="contactForm col-sm-10 col-xs-10" data-ng-submit="create()" class="form-horizontal" novalidate autocomplete="on" data-ng-hide="success">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="name">Name<span style="color: red;">*</span></label>
+                        <input type="text" required id="name" name="name" class="form-control" data-ng-model="contact.name" placeholder="Please input your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email<span style="color: red;">*</span></label>
+                        <input type="text" required id="email" name="email" class="form-control" data-ng-model="contact.email" placeholder="Please input your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name="phone" class="form-control" data-ng-model="contact.phone" placeholder="Please input your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" data-ng-model="contact.subject" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message<span style="color: red;">*</span></span></label>
+                        <textarea required id="message" name="message" class="form-control" data-ng-model="contact.message" rows="5"></textarea>
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-large btn-primary">Submit</button>
+                    </div>
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
+            <div data-ng-show="success">
+                <h3 class="text-success text-center">Thanks for contacting us, we will get touch with you soon.</h3>
+                <div class="text-center bottom-action">
+                    <a class="btn btn-primary" data-ng-href="#!/home" title="View">Back</a>
+                </div>
+            </div>
+        </div>
 	</div>
 </section>

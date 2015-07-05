@@ -1,8 +1,8 @@
 'use strict';
 
 // Products controller
-angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Products', 'Upload',
-	function($scope, $stateParams, $location, $http, Authentication, Products, Upload) {
+angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Products',
+	function($scope, $stateParams, $location, $http, Authentication, Products) {
 		$scope.authentication = Authentication;
 
 		$scope.pageAuth = function () {
@@ -89,25 +89,6 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 			}
 		};
 
-
-		//Handle image upload
-		$scope.$watch('product.image', function () {
-			$scope.upload($scope.image);
-		});
-
-		$scope.upload = function (image) {
-			if (image && image.length) {
-				Upload.upload({
-					url: '',
-					fields: {
-						'product': $scope.product.name
-					},
-					file: image
-				}).progress(function(e){
-
-				});
-			}
-		};
 
 	}
 ]);

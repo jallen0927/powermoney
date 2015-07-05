@@ -1,21 +1,20 @@
 {
-  "name": "meanjs",
-  "version": "0.3.2",
-  "description": "Fullstack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
+  "name": "powermoney",
+  "version": "0.0.1",
+  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
   "dependencies": {
     "bootstrap": "~3",
     "angular": "~1.2",
     "angular-resource": "~1.2",
-    "angular-animate": "~1.2",
     "angular-mocks": "~1.2",
-    "angular-bootstrap": "~0.12.0",
+    "angular-cookies": "~1.2",
+    "angular-animate": "~1.2",
+    "angular-touch": "~1.2",
+    "angular-sanitize": "~1.2",
+    "angular-bootstrap": "~0.11.2",
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.11",
-    "angularjs-file-upload": "~4.1.0",
     "fontawesome": "~4.3.0",
-    "angular-route": "~1.3.15",
-    "ckeditor": "~4.4.7",
-    "ng-file-upload": "~4.2.4",
     "fancybox": "~2.1.5"
   }
 }
