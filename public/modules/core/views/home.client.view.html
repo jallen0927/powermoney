@@ -1,29 +1,29 @@
 <div data-ng-controller="PubController" data-ng-init="init()" class="col-sm-12 block-middle">
 	<div class="container col-xs-12 col-sm-12 col-md-6 col-md-offset-3 block-area" data-ng-hide="showResult">
-		<h2 class="text-center">Seize Power, Grab your Money</h2>
+		<h2 class="text-center" translate="SLOGAN"></h2>
 		<div class="col-md-10 col-md-offset-1">
 			<form name="entryForm" data-ng-submit="comparePlan()" class="form-horizontal text-center" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
-						<label for="address">Address (Auckland region only)</label>
-						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="Your home address" data-ng-change="resetError()">
+						<label for="address" translate="ADDRESS"></label>
+						<input type="text" required="required" id="address" name="address" class="form-control" data-ng-model="entry.address" placeholder="{{'ADDRESS_TIP' | translate}}" data-ng-change="resetError()">
 					</div>
 					<div class="form-group">
-						<label for="amount">Monthly Consumption (kWh)</label>
-						<input type="number" required="required" min="1" id="amount" name="amount" class="form-control" data-ng-model="entry.amount" placeholder="Your average monthly power consumption">
+						<label for="amount" translate="CONSUMPTION"></label>
+						<input type="number" required="required" min="1" id="amount" name="amount" class="form-control" data-ng-model="entry.amount" placeholder="{{'CONSUMPTION_TIP' | translate}}">
 					</div>
 					<div class="form-group">
 						<label for="wgas">
 							<input type="checkbox" data-ng-model="entry.wgas" id="wgas" name="wgas">
-							Gas with Power?
+							{{'WITH_GAS' | translate}}
 						</label>
 					</div>
 					<div class="form-group toggleable" data-ng-show="entry.wgas">
-						<label for="gasamount">Gas Monthly Consumption (L)</label>
-						<input  data-ng-disabled="!entry.wgas" type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="Your average monthly gas consumption">
+						<label for="gasamount" translate="GAS_CONSUMPTION"></label>
+						<input  data-ng-disabled="!entry.wgas" type="number" required="required" min="1" id="gasamount" name="gasamount" class="form-control" data-ng-model="entry.gasamount" placeholder="{{'GAS_TIP' | translate}}">
 					</div>
 					<div class="text-center form-group">
-						<button type="submit" class="btn btn-large btn-primary">Submit</button>
+						<button type="submit" class="btn btn-large btn-primary" translate="SUBMIT"></button>
 							<!--
 						<input type="button" class="btn btn-large btn-primary" data-ng-click="reset" value="重置">
 							-->

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$rootScope', 'Authentication', 'Menus',
-	function($scope, $rootScope, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$translate', 'Authentication', 'Menus',
+	function($scope, $translate, Authentication, Menus) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
@@ -16,11 +16,12 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 		});
 
         // Define language
-        $rootScope.language = $rootScope.language || 'en';
+        //$rootScope.language = $rootScope.language || 'en';
 
         $scope.setLanguage = function(language) {
-            $rootScope.language = language;
-            console.log($rootScope.language);
+            //$rootScope.language = language;
+            //console.log($rootScope.language);
+            $translate.use(language);
         };
 	}
 ]);

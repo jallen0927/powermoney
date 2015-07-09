@@ -27,7 +27,7 @@ body {
     height: 100%; }
     body .content > .container {
       position: relative;
-      padding: 50px 30px 0px 30px;
+      padding: 50px 30px 0 30px;
       height: 100%;
       width: 100%;
       overflow: auto; }
