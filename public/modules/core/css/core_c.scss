@@ -195,7 +195,7 @@ $transform: none;
 	right: 30px;
 }
 
-[data-ui-view].ng-enter {
+.ng-enter {
 	-webkit-animation: $duration fade-in;
 	-moz-animation: $duration fade-in;
 	-o-animation: $duration fade-in;
@@ -203,7 +203,7 @@ $transform: none;
 	z-index: 100;
 }
 
-[data-ui-view].ng-leave {
+.ng-leave, {
 	-webkit-animation: $duration fade-out;
 	-moz-animation: $duration fade-out;
 	-o-animation: $duration fade-out;
@@ -339,4 +339,8 @@ $transform: none;
 	to {
 		opacity: 0;
 	}
+}
+
+[translate] {
+    transition: all 1s;
 }

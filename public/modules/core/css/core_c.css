@@ -128,14 +128,14 @@ form {
   left: 30px;
   right: 30px; }
 
-[data-ui-view].ng-enter {
+.ng-enter {
   -webkit-animation: 0.5s fade-in;
   -moz-animation: 0.5s fade-in;
   -o-animation: 0.5s fade-in;
   animation: 0.5s fade-in;
   z-index: 100; }
 
-[data-ui-view].ng-leave {
+.ng-leave {
   -webkit-animation: 0.5s fade-out;
   -moz-animation: 0.5s fade-out;
   -o-animation: 0.5s fade-out;
@@ -225,5 +225,7 @@ form {
     opacity: 1; }
   to {
     opacity: 0; } }
+[translate] {
+  transition: all 1s; }
 
 /*# sourceMappingURL=core_c.css.map */

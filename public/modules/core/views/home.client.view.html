@@ -36,19 +36,19 @@
 		</div>
 	</div>
 
-	<div class="container col-xs-12 col-sm-12 col-md-10 col-md-offset-1 block-area" data-ng-show="showResult">
-		<h3>Here are the results calculated for you</h3>
+	<div class="container col-xs-12 col-sm-12 col-md-10 col-md-offset-1 block-area" data-ng-if="showResult">
+		<h3 translate="RESULT_TITLE"></h3>
 		<table class="table">
 			<tr>
-				<td colspan="6"><h4>Power plans</h4></td>
+				<td colspan="6"><h4 translate="POWER_TITLE"></h4></td>
 			</tr>
 			<tr>
-				<th>Expect Cost</th>
-				<th>Company Name</th>
-				<th>Plan Name</th>
-				<th>Area</th>
-				<th>Special</th>
-				<th>Signup</th>
+				<th translate="EXPECT_COST"></th>
+				<th translate="COMPANY_NAME"></th>
+				<th translate="PLAN_NAME"></th>
+				<th translate="AREA"></th>
+				<th translate="SPECIAL"></th>
+				<th translate="SIGNUP"></th>
 			</tr>
 			<tr data-ng-repeat="plan in plans | orderBy:'result'">
 				<td>${{plan.result}}</td>
@@ -56,30 +56,30 @@
 				<td data-ng-bind="plan.name"></td>
 				<td data-ng-bind="plan.area"></td>
 				<td data-ng-bind="plan.special"></td>
-				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success">Signup</a></td>
+				<td><a data-ng-href="/#!/orders/create?plan={{plan._id}}" class="btn btn-xs btn-success" translate="SIGN_UP"></a></td>
 			</tr>
 		</table>
 
 		<table class="table" data-ng-show="showResult && entry.wgas">
 			<tr>
-				<td colspan="4"><h4>Gas plans</h4></td>
+				<td colspan="4"><h4 translate="GAS_TITLE"></h4></td>
 			</tr>
 			<tr>
-				<th>Expect Cost</th>
-				<th>Company Name</th>
-				<th>Plan Name</th>
-				<th>Signup</th>
+				<th translate="EXPECT_COST"></th>
+				<th translate="COMPANY_NAME"></th>
+				<th translate="PLAN_NAME"></th>
+				<th translate="SIGN_UP"></th>
 			</tr>
 			<tr data-ng-repeat="gplan in gplans | orderBy:'result'">
 				<td>${{gplan.result}}</td>
 				<td data-ng-bind="gplan.company"></td>
 				<td data-ng-bind="gplan.name"></td>
-				<td><a data-ng-href="/#!/orders/create?gplan={{gplan._id}}" class="btn btn-xs btn-success">Signup</a></td>
+				<td><a data-ng-href="/#!/orders/create?gplan={{gplan._id}}" class="btn btn-xs btn-success" translate="SIGN_UP"></a></td>
 			</tr>
 		</table>
 
 		<div class="text-center bottom-action" data-ng-show="showResult">
-			<button class="btn btn-primary" data-ng-click="goBack()">Back</button>
+			<button class="btn btn-primary" data-ng-click="goBack()" translate="BACK">Back</button>
 		</div>
 			<!--
 		<div class="col-md-4 col-md-offset-0 text-center" data-ng-hide="showResult">
