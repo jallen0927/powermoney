@@ -1,8 +1,8 @@
 'use strict';
 
 // Blogs controller
-angular.module('blogs').controller('BlogsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Blogs',
-	function($scope, $stateParams, $location, Authentication, Blogs) {
+angular.module('blogs').controller('BlogsController', ['$scope', '$stateParams', '$location', '$translate', 'Authentication', 'Blogs',
+	function($scope, $stateParams, $location, $translate, Authentication, Blogs) {
 		$scope.authentication = Authentication;
 
 		$scope.pageAuth = function () {

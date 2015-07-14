@@ -12,3 +12,22 @@ angular.module('blogs').factory('Blogs', ['$resource',
 		});
 	}
 ]);
+
+angular.module('blogs').service('TestBlog',
+    function () {
+        var blog = {
+            title: {
+                en: 'English Title',
+                cn: '中文标题'
+            },
+            content: {
+                en: 'English Content',
+                cn: '中文内容'
+            },
+            created: Date.now
+        };
+
+        return blog;
+    }
+
+);

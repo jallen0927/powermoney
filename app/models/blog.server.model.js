@@ -8,24 +8,28 @@ var mongoose = require('mongoose'),
 
 var BlogSchema = new Schema({
 	title: {
-		type: String,
-		default: '',
-		trim: true,
-		required: 'Title cannot be blank'
-	},
-	title_cn: {
-		type: String,
-		default: '',
-		trim: true,
-		required: '请输入标题'
+        en: {
+            type: String,
+            default: '',
+            trim: true,
+            required: 'Title cannot be blank'
+        },
+        cn: {
+            type: String,
+            default: '',
+            trim: true,
+            required: '请输入标题'
+        }
 	},
 	content: {
-		type: String,
-		default: ''
-	},
-	content_cn: {
-		type: String,
-		default: ''
+        en: {
+            type: String,
+            default: ''
+        },
+        cn: {
+            type: String,
+            default: ''
+        }
 	},
 	created: {
 		type: Date,

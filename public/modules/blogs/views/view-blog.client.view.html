@@ -1,7 +1,7 @@
-<section data-ng-controller="BlogsController" data-ng-init="findOne()" class="col-sm-12 block-area">
+<section data-ng-controller="BlogsController" data-ng-init="" class="block-area col-md-offset-1 col-md-10">
 	<div class="">
 		<div class="page-header">
-			<h4 data-ng-bind="blog.title"></h4>
+			<h4 translate="PAGE_BLOGS.TITLE"></h4>
 		</div>
 		<div class="pull-right" data-ng-show="authentication.user">
 			<a class="btn btn-primary" href="/#!/blogs/{{blog._id}}/edit">
